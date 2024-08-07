@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { UserSchemaService } from './user_schema.service';
 import { Prisma } from '@prisma/client';
 
@@ -17,8 +17,8 @@ export class UserSchemaController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userSchemaService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.userSchemaService.findOne(id);
   }
 
   @Patch(':id')
@@ -29,5 +29,10 @@ export class UserSchemaController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.userSchemaService.remove(+id);
+  }
+
+  @Get('problem/:id')
+  scrape_problem(@Param("id") id:string){
+    return this.userSchemaService.findProblem(id)
   }
 }

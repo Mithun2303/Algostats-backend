@@ -4,7 +4,8 @@ POST http://127.0.0.1:3000/user
 Content-Type: "application/json"
 
 {
-    "id":"22PC19",
-    "name":"Mithun Karthick Venkatesan",
-    "classId":"22PC"
+    "id":"22PC33",
+    "classId":"22PC",
+    "email":"22pc33@psgtech.ac.in",
+    "role":"STUDENT"
 }

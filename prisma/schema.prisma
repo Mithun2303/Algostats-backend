@@ -13,61 +13,66 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Class_Schema {
+model Class {
   id   String        @id @default(uuid())
-  name User_Schema[]
+
+  name Users[]
   Task Task[]
 }
 
-
-model User_Schema {
+model Users {
   id                  String                @id
-  name                String
-  email String?
+  // name                String //remove
+  email               String?
   classId             String
-  role                Roles?
+  role                String                 @default("STUDENT")
   linkedIn            String?
   github              String?
   leetcode            String?
-  solves              Problem_Schema[]
-  class               Class_Schema          @relation(fields: [classId], references: [id])
-  User_Problem_Schema User_Problem_Schema[]
+  lastBackupTime      DateTime              @default(now())
+
+  solves              Problem[]
+  class               Class          @relation(fields: [classId], references: [id])
+  User_Problem  User_Problem[]
   Task                Task[]
 }
 
-model Problem_Schema {
+model Problem {
   id                   String                 @id @default(uuid())
   name                 String
   platform             String                 @default("Leetcode")
-  description          String
-  topics               Topic_Schema[]
-  solved               User_Schema[]
-  Topic_Problem_Schema Topic_Problem_Schema[]
-  User_Problem_Schema  User_Problem_Schema[]
+  // description          String
+  difficulty           Difficulty
+
+  topics               Topic[]
+  solved               Users []
+  Topic_Problem  Topic_Problem []
+  User_Problem   User_Problem []
 }
 
-model User_Problem_Schema {
+model User_Problem  {
   timestamp DateTime       @default(now())
   problemId String
   userId    String
-  problem   Problem_Schema @relation(fields: [problemId], references: [id])
-  user      User_Schema    @relation(fields: [userId], references: [id])
 
+  problem   Problem  @relation(fields: [problemId], references: [id])
+  user      Users     @relation(fields: [userId], references: [id])
   @@id([problemId, userId])
 }
 
-model Topic_Schema {
+model Topic  {
   id                   String                 @id @default(uuid())
-  name                 Problem_Schema[]
-  Topic_Problem_Schema Topic_Problem_Schema[]
+
+  name                 Problem []
+  Topic_Problem  Topic_Problem []
 }
 
-model Topic_Problem_Schema {
+model Topic_Problem  {
   topicId   String
   problemId String
-  topic     Topic_Schema   @relation(fields: [topicId], references: [id])
-  problem   Problem_Schema @relation(fields: [problemId], references: [id])
 
+  topic     Topic    @relation(fields: [topicId], references: [id])
+  problem   Problem  @relation(fields: [problemId], references: [id])
   @@id([topicId, problemId])
 }
 
@@ -76,14 +81,22 @@ model Task {
   classId    String
   count      Int
   assignedBy String
-  assignee   User_Schema  @relation(fields: [assignedBy], references: [id])
-  class      Class_Schema @relation(fields: [id], references: [id])
-  timestamp DateTime @default(now())
+  timestamp  DateTime     @default(now())
+
+  assignee   Users   @relation(fields: [assignedBy], references: [id])
+  class      Class  @relation(fields: [id], references: [id])
 }
 
-enum Roles {
-  STUDENT
-  PLACEMENT_REPRESENTATIVE
-  TUTOR
-  COURSE_COORDINATOR
+// enum Roles {
+//   STUDENT
+//   PLACEMENT_REPRESENTATIVE
+//   TUTOR
+//   COURSE_COORDINATOR
+// }
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+  EXPERT
 }

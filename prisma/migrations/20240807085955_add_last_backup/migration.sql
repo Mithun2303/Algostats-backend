@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "User_Schema" ADD COLUMN     "lastBackupTime" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
