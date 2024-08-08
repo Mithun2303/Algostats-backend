@@ -7,7 +7,7 @@ export class UserSchemaController {
   constructor(private readonly userSchemaService: UserSchemaService) {}
 
   @Post()
-  create(@Body() createUserSchemaDto: Prisma.User_SchemaCreateInput) {
+  create(@Body() createUserSchemaDto: Prisma.UsersCreateInput) {
     return this.userSchemaService.create(createUserSchemaDto);
   }
 
@@ -22,7 +22,7 @@ export class UserSchemaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserSchemaDto: Prisma.User_SchemaUpdateInput) {
+  update(@Param('id') id: string, @Body() updateUserSchemaDto: Prisma.UsersUpdateInput) {
     return this.userSchemaService.update(id, updateUserSchemaDto);
   }
 

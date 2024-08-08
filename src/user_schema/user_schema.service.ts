@@ -3,20 +3,15 @@ import { Prisma } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
-import { ProblemSchemaService } from 'src/problem_schema/problem_schema.service';
-import { TopicSchemaService } from 'src/topic_schema/topic_schema.service';
-import Leetcode from 'src/client/client.service';
+
 
 @Injectable()
 export class UserSchemaService {
   constructor(
     private readonly databaseService: DatabaseService,
-    private readonly problemSchemaService: ProblemSchemaService,
-    private readonly topicSchemaService: TopicSchemaService,
-    private readonly leetcodeService: Leetcode,
   ) {}
-  async create(createUserSchemaDto: Prisma.User_SchemaCreateInput) {
-    const response = await this.databaseService.user_Schema.findUnique({
+  async create(createUserSchemaDto: Prisma.UsersCreateInput) {
+    const response = await this.databaseService.users.findUnique({
       where: {
         id: createUserSchemaDto.id,
       },
@@ -24,7 +19,7 @@ export class UserSchemaService {
     if (response) {
       return response;
     }
-    return this.databaseService.user_Schema.create({
+    return this.databaseService.users.create({
       data: createUserSchemaDto,
     });
   }
@@ -37,8 +32,8 @@ export class UserSchemaService {
     return `This action returns a #${id} userSchema`;
   }
 
-  async update(id: string, updateUserSchemaDto: Prisma.User_SchemaUpdateInput) {
-    return this.databaseService.user_Schema.update({
+  async update(id: string, updateUserSchemaDto: Prisma.UsersUpdateInput) {
+    return this.databaseService.users.update({
       where: {
         id,
       },
@@ -51,15 +46,15 @@ export class UserSchemaService {
   }
 
   async generateBackup(id: string) {
-    const user = await this.databaseService.user_Schema.findFirst({
+    const user = await this.databaseService.users.findFirst({
       where: { AND: [{ id: id }, { leetcode: { not: null } }] },
     });
     const leetcode_id = user.leetcode;
-    const problem_list = <Object> this.leetcodeService.getUserProblems(
-      leetcode_id,
-      user.lastBackupTime,
-    );
-    return problem_list;
+    // const problem_list = <Object> this.leetcodeService.getUserProblems(
+    //   leetcode_id,
+    //   user.lastBackupTime,
+    // );
+    // return problem_list;
   }
 
   // async problemDetails(titleSlug: string) {
