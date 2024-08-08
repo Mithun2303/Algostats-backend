@@ -11,16 +11,36 @@ export class LeetcodeService {
   async listRecentProblem(user: Prisma.UsersUpdateInput) {
     console.log(user);
     const limit = 100;
-    const query = `
-          query recentAcSubmissions($username: String!, $limit: Int!) {
-            recentAcSubmissionList(username: $username, limit: $limit) {
-              id
-              title
-              titleSlug
-              timestamp
-            }
-          }
-        `;
+    // const query = `
+    //       query recentAcSubmissions($username: String!, $limit: Int!) {
+    //         recentAcSubmissionList(username: $username, limit: $limit) {
+    //           id
+    //           title
+    //           titleSlug
+    //           timestamp
+    //           questionDetails:question(titleSlug:titleSlug) {
+    //             difficulty
+    //             topicTags {
+    //             slug
+    //             }
+    //         }
+    //       }
+    //     `;
+    const query =`query recentAcSubmissionsWithDetails($username: String!, $limit: Int!) {
+  recentAcSubmissionList(username: $username, limit: $limit) {
+    id
+    title
+    titleSlug
+    timestamp
+    questionDetails: question(titleSlug: titleSlug) {
+      difficulty
+      topicTags {
+        slug
+      }
+    }
+  }
+}
+`
 
     const variables = {
       username: user.leetcode,
@@ -42,7 +62,7 @@ export class LeetcodeService {
       // list.forEach(async(element) => {
       //   console.log(await this.problemDetails(element.titleSlug))
       // });
-
+      console.log(list);
       // console.log(await this.problemDetails(result[0].titleSlug));
       return list;
     } catch (error) {
@@ -79,12 +99,10 @@ export class LeetcodeService {
       // result.forEach(element=>{
       //   this.topicSchemaService.create({id:element.name})
       // })
-      console.log(topics)
+      console.log(topics);
       return topics;
     } catch (error) {}
   }
 
-  async problemDifficulty(titleSlug:string){
-
-  }
+  async problemDifficulty(titleSlug: string) {}
 }
