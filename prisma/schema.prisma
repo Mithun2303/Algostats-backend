@@ -14,77 +14,85 @@ datasource db {
 }
 
 model Class {
-  id   String        @id @default(uuid())
-
-  name Users[]
-  Task Task[]
+  id     String  @id @default(uuid())
+  stream String
+  batch  Int
+  name   Users[]
+  Task   Task[]
 }
 
-model Users {
-  id                  String                @id
-  // name                String //remove
-  email               String?
-  classId             String
-  role                String                 @default("STUDENT")
-  linkedIn            String?
-  github              String?
-  leetcode            String?
-  lastBackupTime      DateTime              @default(now())
+// model Batch {
 
-  solves              Problem[]
-  class               Class          @relation(fields: [classId], references: [id])
-  User_Problem  User_Problem[]
-  Task                Task[]
+// }
+model Users {
+  id             String   @id
+  // name                String //remove
+  email          String?
+  classId        String
+  role           String   @default("STUDENT")
+  linkedIn       String?
+  github         String?
+  leetcode       String?
+  lastBackupTime DateTime @default(now())
+
+  solves       Problem[]
+  class        Class          @relation(fields: [classId], references: [id])
+  User_Problem User_Problem[]
+  Task         Task[]
 }
 
 model Problem {
-  id                   String                 @id @default(uuid())
-  name                 String
-  platform             String                 @default("Leetcode")
+  id         String     @id @default(uuid())
+  name       String
+  platform   String     @default("Leetcode")
+  points     Int
   // description          String
-  difficulty           Difficulty
+  difficulty Difficulty
 
-  topics               Topic[]
-  solved               Users []
-  Topic_Problem  Topic_Problem []
-  User_Problem   User_Problem []
+  topics        Topic[]
+  solved        Users[]
+  Topic_Problem Topic_Problem[]
+  User_Problem  User_Problem[]
 }
 
-model User_Problem  {
-  timestamp DateTime       @default(now())
+model User_Problem {
+  timestamp DateTime @default(now())
   problemId String
   userId    String
 
-  problem   Problem  @relation(fields: [problemId], references: [id])
-  user      Users     @relation(fields: [userId], references: [id])
+  problem Problem @relation(fields: [problemId], references: [id])
+  user    Users   @relation(fields: [userId], references: [id])
+
   @@id([problemId, userId])
 }
 
-model Topic  {
-  id                   String                 @id @default(uuid())
+model Topic {
+  id String @id @default(uuid())
 
-  name                 Problem []
-  Topic_Problem  Topic_Problem []
+  name          Problem[]
+  Topic_Problem Topic_Problem[]
 }
 
-model Topic_Problem  {
+model Topic_Problem {
   topicId   String
   problemId String
 
-  topic     Topic    @relation(fields: [topicId], references: [id])
-  problem   Problem  @relation(fields: [problemId], references: [id])
+  topic   Topic   @relation(fields: [topicId], references: [id])
+  problem Problem @relation(fields: [problemId], references: [id])
+
   @@id([topicId, problemId])
 }
 
 model Task {
-  id         String       @id @default(uuid())
+  id         String   @id @default(uuid())
   classId    String
   count      Int
   assignedBy String
-  timestamp  DateTime     @default(now())
+  timestamp  DateTime @default(now())
+  deadline DateTime @default(now())
 
-  assignee   Users   @relation(fields: [assignedBy], references: [id])
-  class      Class  @relation(fields: [id], references: [id])
+  assignee Users @relation(fields: [assignedBy], references: [id])
+  class    Class @relation(fields: [id], references: [id])
 }
 
 // enum Roles {

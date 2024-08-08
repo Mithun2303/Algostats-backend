@@ -7,12 +7,11 @@ import { ClassSchemaModule } from './class_schema/class_schema.module';
 import { ProblemSchemaModule } from './problem_schema/problem_schema.module';
 import { TopicSchemaModule } from './topic_schema/topic_schema.module';
 import { ClientModule } from './client/client.module';
-import { LeetcodeService } from './leetcode/leetcode.service';
 
 
 @Module({
   imports: [DatabaseModule, UserSchemaModule, ClassSchemaModule, ProblemSchemaModule, TopicSchemaModule, ClientModule],
   controllers: [AppController],
-  providers: [AppService, LeetcodeService],
+  providers: [AppService],
 })
 export class AppModule {}

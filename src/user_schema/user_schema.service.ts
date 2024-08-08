@@ -5,6 +5,7 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
 import { ProblemSchemaService } from 'src/problem_schema/problem_schema.service';
 import { TopicSchemaService } from 'src/topic_schema/topic_schema.service';
+import Leetcode from 'src/client/client.service';
 
 @Injectable()
 export class UserSchemaService {
@@ -12,6 +13,7 @@ export class UserSchemaService {
     private readonly databaseService: DatabaseService,
     private readonly problemSchemaService: ProblemSchemaService,
     private readonly topicSchemaService: TopicSchemaService,
+    private readonly leetcodeService: Leetcode,
   ) {}
   async create(createUserSchemaDto: Prisma.User_SchemaCreateInput) {
     const response = await this.databaseService.user_Schema.findUnique({
@@ -48,10 +50,16 @@ export class UserSchemaService {
     return `This action removes a #${id} userSchema`;
   }
 
-  async findProblem(id: string) {
+  async generateBackup(id: string) {
     const user = await this.databaseService.user_Schema.findFirst({
       where: { AND: [{ id: id }, { leetcode: { not: null } }] },
     });
+    const leetcode_id = user.leetcode;
+    const problem_list = <Object> this.leetcodeService.getUserProblems(
+      leetcode_id,
+      user.lastBackupTime,
+    );
+    return problem_list;
   }
 
   // async problemDetails(titleSlug: string) {

@@ -33,6 +33,6 @@ export class UserSchemaController {
 
   @Get('problem/:id')
   scrape_problem(@Param("id") id:string){
-    return this.userSchemaService.findProblem(id)
+    return this.userSchemaService.generateBackup(id)
   }
 }
