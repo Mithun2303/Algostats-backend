@@ -3,22 +3,20 @@ import { Prisma } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
+import { LeetcodeService } from 'src/leetcode/leetcode.service';
+import { TopicService } from 'src/topic/topic.service';
 
 
 @Injectable()
 export class UserSchemaService {
   constructor(
     private readonly databaseService: DatabaseService,
+    private readonly leetcodeService: LeetcodeService,
+    private readonly topicService: TopicService
+
   ) {}
   async create(createUserSchemaDto: Prisma.UsersCreateInput) {
-    const response = await this.databaseService.users.findUnique({
-      where: {
-        id: createUserSchemaDto.id,
-      },
-    });
-    if (response) {
-      return response;
-    }
+
     return this.databaseService.users.create({
       data: createUserSchemaDto,
     });
@@ -49,12 +47,30 @@ export class UserSchemaService {
     const user = await this.databaseService.users.findFirst({
       where: { AND: [{ id: id }, { leetcode: { not: null } }] },
     });
-    const leetcode_id = user.leetcode;
-    // const problem_list = <Object> this.leetcodeService.getUserProblems(
-    //   leetcode_id,
-    //   user.lastBackupTime,
-    // );
-    // return problem_list;
+    // const leetcode_id = user.leetcode;
+    const problem_list = await this.leetcodeService.listRecentProblem(user);
+    problem_list.forEach(async (problem) => {
+      const val = await this.databaseService.problem.findFirst({
+        where:{
+          id:problem.id
+        }
+      });
+      
+      if(val==null){
+        let difficulty = await this.leetcodeService.problemDifficulty(problem.titleSlug)
+        let topics = await this.leetcodeService.problemTopics(problem.titleSlug)
+        if(topics.length>0){
+          topics.forEach(async (topic) => {
+            try {
+              await this.topicService.create({id:topic.name})
+            } catch (error) {
+              console.log(error);
+            }
+          });
+        }
+      }
+    });
+    return problem_list;
   }
 
   // async problemDetails(titleSlug: string) {
