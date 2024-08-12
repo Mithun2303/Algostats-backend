@@ -4,9 +4,9 @@ import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class TopicService {
-  constructor(private readonly databaseService: DatabaseService){}
+  constructor(private readonly databaseService: DatabaseService) {}
   create(createTopicDto: Prisma.TopicCreateInput) {
-    return this.databaseService.topic.create({data:createTopicDto});
+    return this.databaseService.topic.create({ data: createTopicDto });
   }
 
   findAll() {

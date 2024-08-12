@@ -26,7 +26,7 @@ export class LeetcodeService {
     //         }
     //       }
     //     `;
-    const query =`query recentAcSubmissionsWithDetails($username: String!, $limit: Int!) {
+    const query = `query recentAcSubmissionsWithDetails($username: String!, $limit: Int!) {
   recentAcSubmissionList(username: $username, limit: $limit) {
     id
     title
@@ -40,7 +40,7 @@ export class LeetcodeService {
     }
   }
 }
-`
+`;
 
     const variables = {
       username: user.leetcode,
@@ -50,7 +50,7 @@ export class LeetcodeService {
     const url = 'https://leetcode.com/graphql/';
 
     try {
-      let result = await firstValueFrom(
+      const result = await firstValueFrom(
         this.httpService.post(url, {
           query: query,
           variables: variables,
@@ -89,7 +89,7 @@ export class LeetcodeService {
 
     const url = 'https://leetcode.com/graphql/';
     try {
-      let result = await firstValueFrom(
+      const result = await firstValueFrom(
         this.httpService.post(url, {
           query: query,
           variables: variables,

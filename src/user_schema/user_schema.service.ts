@@ -6,17 +6,14 @@ import { firstValueFrom } from 'rxjs';
 import { LeetcodeService } from 'src/leetcode/leetcode.service';
 import { TopicService } from 'src/topic/topic.service';
 
-
 @Injectable()
 export class UserSchemaService {
   constructor(
     private readonly databaseService: DatabaseService,
     private readonly leetcodeService: LeetcodeService,
-    private readonly topicService: TopicService
-
+    private readonly topicService: TopicService,
   ) {}
   async create(createUserSchemaDto: Prisma.UsersCreateInput) {
-
     return this.databaseService.users.create({
       data: createUserSchemaDto,
     });
@@ -51,18 +48,22 @@ export class UserSchemaService {
     const problem_list = await this.leetcodeService.listRecentProblem(user);
     problem_list.forEach(async (problem) => {
       const val = await this.databaseService.problem.findFirst({
-        where:{
-          id:problem.id
-        }
+        where: {
+          id: problem.id,
+        },
       });
-      
-      if(val==null){
-        let difficulty = await this.leetcodeService.problemDifficulty(problem.titleSlug)
-        let topics = await this.leetcodeService.problemTopics(problem.titleSlug)
-        if(topics.length>0){
+
+      if (val == null) {
+        const difficulty = await this.leetcodeService.problemDifficulty(
+          problem.titleSlug,
+        );
+        const topics = await this.leetcodeService.problemTopics(
+          problem.titleSlug,
+        );
+        if (topics.length > 0) {
           topics.forEach(async (topic) => {
             try {
-              await this.topicService.create({id:topic.name})
+              await this.topicService.create({ id: topic.name });
             } catch (error) {
               console.log(error);
             }

@@ -4,9 +4,9 @@ import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class ClassService {
-  constructor(private readonly databaseService:DatabaseService){}
+  constructor(private readonly databaseService: DatabaseService) {}
   create(createClassDto: Prisma.ClassCreateInput) {
-    return this.databaseService.class.create({data:createClassDto})
+    return this.databaseService.class.create({ data: createClassDto });
   }
 
   findAll() {
@@ -15,19 +15,19 @@ export class ClassService {
 
   findOne(id: string) {
     return this.databaseService.class.findMany({
-      where:{
-        id:id
-      }
+      where: {
+        id: id,
+      },
     });
   }
 
   update(id: string, updateClassDto: Prisma.ClassUpdateInput) {
     return this.databaseService.class.update({
-      where:{
+      where: {
         id,
       },
-      data:updateClassDto
-    })
+      data: updateClassDto,
+    });
   }
 
   remove(id: string) {

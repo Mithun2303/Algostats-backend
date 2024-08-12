@@ -7,7 +7,7 @@ import { ClassModule } from './class/class.module';
 import { TopicModule } from './topic/topic.module';
 
 @Module({
-  imports: [DatabaseModule, UserSchemaModule,ClassModule, TopicModule],
+  imports: [DatabaseModule, UserSchemaModule, ClassModule, TopicModule],
   controllers: [AppController],
   providers: [AppService],
 })

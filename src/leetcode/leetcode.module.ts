@@ -3,8 +3,8 @@ import { LeetcodeService } from './leetcode.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports:[HttpModule],
+  imports: [HttpModule],
   providers: [LeetcodeService],
-  exports:[LeetcodeService]
+  exports: [LeetcodeService],
 })
 export class LeetcodeModule {}

@@ -6,8 +6,8 @@ import { LeetcodeModule } from 'src/leetcode/leetcode.module';
 import { TopicModule } from 'src/topic/topic.module';
 
 @Module({
-  imports:[HttpModule,LeetcodeModule,TopicModule],
+  imports: [HttpModule, LeetcodeModule, TopicModule],
   controllers: [UserSchemaController],
-  providers: [UserSchemaService,],
+  providers: [UserSchemaService],
 })
 export class UserSchemaModule {}
