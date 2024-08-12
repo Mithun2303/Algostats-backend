@@ -14,11 +14,14 @@ datasource db {
 }
 
 model Class {
-  id     String  @id @default(uuid())
-  stream String
-  batch  Int
-  name   Users[]
-  Task   Task[]
+  id         String   @id @default(uuid())
+  stream     String
+  batch      Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  name Users[]
+  Task Task[]
 }
 
 // model Batch {
@@ -35,6 +38,9 @@ model Users {
   leetcode       String?
   lastBackupTime DateTime @default(now())
 
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
   solves       Problem[]
   class        Class          @relation(fields: [classId], references: [id])
   User_Problem User_Problem[]
@@ -48,6 +54,8 @@ model Problem {
   points     Int
   // description          String
   difficulty Difficulty
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
 
   topics        Topic[]
   solved        Users[]
@@ -56,9 +64,11 @@ model Problem {
 }
 
 model User_Problem {
-  timestamp DateTime @default(now())
-  problemId String
-  userId    String
+  timestamp  DateTime @default(now())
+  problemId  String
+  userId     String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   problem Problem @relation(fields: [problemId], references: [id])
   user    Users   @relation(fields: [userId], references: [id])
@@ -67,7 +77,9 @@ model User_Problem {
 }
 
 model Topic {
-  id String @id @default(uuid())
+  id         String   @id @default(uuid())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   name          Problem[]
   Topic_Problem Topic_Problem[]
@@ -77,8 +89,10 @@ model Topic_Problem {
   topicId   String
   problemId String
 
-  topic   Topic   @relation(fields: [topicId], references: [id])
-  problem Problem @relation(fields: [problemId], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  topic      Topic    @relation(fields: [topicId], references: [id])
+  problem    Problem  @relation(fields: [problemId], references: [id])
 
   @@id([topicId, problemId])
 }
@@ -89,7 +103,9 @@ model Task {
   count      Int
   assignedBy String
   timestamp  DateTime @default(now())
-  deadline DateTime @default(now())
+  deadline   DateTime @default(now())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   assignee Users @relation(fields: [assignedBy], references: [id])
   class    Class @relation(fields: [id], references: [id])

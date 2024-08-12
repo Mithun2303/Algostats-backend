@@ -1,7 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { UserSchemaService } from './user_schema.service';
 import { Prisma } from '@prisma/client';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('user')
 @Controller('user')
 export class UserSchemaController {
   constructor(private readonly userSchemaService: UserSchemaService) {}
@@ -22,7 +33,10 @@ export class UserSchemaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserSchemaDto: Prisma.UsersUpdateInput) {
+  update(
+    @Param('id') id: string,
+    @Body() updateUserSchemaDto: Prisma.UsersUpdateInput,
+  ) {
     return this.userSchemaService.update(id, updateUserSchemaDto);
   }
 
@@ -32,7 +46,7 @@ export class UserSchemaController {
   }
 
   @Get('problem/:id')
-  scrape_problem(@Param("id") id:string){
-    return this.userSchemaService.generateBackup(id)
+  scrape_problem(@Param('id') id: string) {
+    return this.userSchemaService.generateBackup(id);
   }
 }
