@@ -8,17 +8,17 @@ import {
   Delete,
   ParseIntPipe,
 } from '@nestjs/common';
-import { UserSchemaService } from './user_schema.service';
+import { UserService } from './user.service';
 import { Prisma } from '@prisma/client';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('user')
 @Controller('user')
 export class UserSchemaController {
-  constructor(private readonly userSchemaService: UserSchemaService) {}
+  constructor(private readonly userSchemaService: UserService) {}
 
   @Post()
-  create(@Body() createUserSchemaDto: Prisma.UsersCreateInput) {
+  create(@Body() createUserSchemaDto: Prisma.UserCreateInput) {
     return this.userSchemaService.create(createUserSchemaDto);
   }
 
@@ -27,15 +27,11 @@ export class UserSchemaController {
     return this.userSchemaService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.userSchemaService.findOne(id);
-  }
 
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateUserSchemaDto: Prisma.UsersUpdateInput,
+    @Body() updateUserSchemaDto: Prisma.UserUpdateInput,
   ) {
     return this.userSchemaService.update(id, updateUserSchemaDto);
   }

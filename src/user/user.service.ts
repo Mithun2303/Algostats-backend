@@ -3,45 +3,49 @@ import { Prisma } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
-import { LeetcodeService } from 'src/leetcode/leetcode.service';
+import { LeetcodeService } from 'src/user/leetcode.service';
 import { TopicService } from 'src/topic/topic.service';
 
 @Injectable()
-export class UserSchemaService {
+export class UserService {
   constructor(
     private readonly databaseService: DatabaseService,
     private readonly leetcodeService: LeetcodeService,
     private readonly topicService: TopicService,
   ) {}
-  async create(createUserSchemaDto: Prisma.UsersCreateInput) {
-    return this.databaseService.users.create({
-      data: createUserSchemaDto,
+  async create(createUserchemaDto: Prisma.UserCreateInput) {
+    return this.databaseService.user.create({
+      data: createUserchemaDto,
     });
   }
 
   async findAll() {
-    return `This action returns all userSchema`;
+    return `This action returns all userchema`;
   }
 
-  async findOne(id: number) {
-    return `This action returns a #${id} userSchema`;
+  async getOne(email) {
+    return await this.databaseService.user.findUnique({
+      where:{
+        email:email
+      }
+    })
   }
 
-  async update(id: string, updateUserSchemaDto: Prisma.UsersUpdateInput) {
-    return this.databaseService.users.update({
+  async update(id: string, updateUserchemaDto: Prisma.UserUpdateInput) {
+    return this.databaseService.user.update({
       where: {
         id,
       },
-      data: updateUserSchemaDto,
+      data: updateUserchemaDto,
     });
   }
 
   async remove(id: number) {
-    return `This action removes a #${id} userSchema`;
+    return `This action removes a #${id} userchema`;
   }
 
   async generateBackup(id: string) {
-    const user = await this.databaseService.users.findFirst({
+    const user = await this.databaseService.user.findFirst({
       where: { AND: [{ id: id }, { leetcode: { not: null } }] },
     });
     // const leetcode_id = user.leetcode;

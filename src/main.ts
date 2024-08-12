@@ -6,7 +6,7 @@ import { SwaggerTheme, SwaggerThemeNameEnum } from 'swagger-themes';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AllExceptionsFilter } from './allException.filter';
-import { ClassSerializerInterceptor } from '@nestjs/common';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -22,15 +22,14 @@ async function bootstrap() {
       excludeExtraneousValues: true,
     }),
   );
-
   const swaggerTheme = new SwaggerTheme();
   const swaggerConfig = new DocumentBuilder()
     .setTitle('ALGOSTATS')
     .setDescription('API Description for ALGOSTATS')
     .setVersion('1.0.0')
+    .addTag('auth', 'Authentication Routes')
     .addTag('default')
     .addTag('public', 'Public Routes')
-    .addTag('auth', 'Authentication Routes')
     .addTag('user', 'User Managemenst Routes')
     .addTag('task', 'Task Management Routes')
     .addBearerAuth()
