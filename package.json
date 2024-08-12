@@ -25,7 +25,11 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
+<<<<<<< Updated upstream
     "@nestjs/swagger": "^7.4.0",
+=======
+    "@nestjs/schedule": "^4.1.0",
+>>>>>>> Stashed changes
     "@prisma/client": "^5.17.0",
     "axios": "^1.7.3",
     "class-transformer": "^0.5.1",

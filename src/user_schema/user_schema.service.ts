@@ -3,8 +3,14 @@ import { Prisma } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
+<<<<<<< Updated upstream
 import { LeetcodeService } from 'src/leetcode/leetcode.service';
 import { TopicService } from 'src/topic/topic.service';
+=======
+import { ProblemSchemaService } from 'src/problem_schema/problem_schema.service';
+import { TopicSchemaService } from 'src/topic_schema/topic_schema.service';
+import { Cron } from '@nestjs/schedule';
+>>>>>>> Stashed changes
 
 @Injectable()
 export class UserSchemaService {
@@ -73,6 +79,8 @@ export class UserSchemaService {
     });
     return problem_list;
   }
+
+
 
   // async problemDetails(titleSlug: string) {
   //     const query = `
