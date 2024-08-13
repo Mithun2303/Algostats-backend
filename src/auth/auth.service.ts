@@ -1,5 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserLoginDto, UserLoginResponseDto, UserRegisterDto, UserResponseDto } from './dto/auth.dto';
+import {
+  UserLoginDto,
+  UserLoginResponseDto,
+  UserRegisterDto,
+  UserResponseDto,
+} from './dto/auth.dto';
 import * as bcrypt from 'bcrypt';
 import { DatabaseService } from 'src/database/database.service';
 import { JwtService } from '@nestjs/jwt';
@@ -14,24 +19,24 @@ export class AuthService {
     return this.jwt.verifyAsync(token);
   }
 
-  async generateToken(data: UserResponseDto) {
-    return this.jwt.signAsync({data});
+  async generateToken(email: string) {
+    return this.jwt.signAsync({email});
   }
-
 
   async login(data: UserLoginDto) {
     const user = await this.databaseService.user.findUnique({
-      where:{
-        email:data.email
-      }
+      where: {
+        email: data.email,
+      },
     });
-      if(!user) throw new UnauthorizedException('Incorrect username or password');
-      const pwd_bool = await bcrypt.compare(data.password,user.password)
-      if(!pwd_bool) throw new UnauthorizedException('Incorrect username or password');
-      const token = await this.generateToken(user);
-      return  new UserLoginResponseDto({...user,token})
+    if (!user)
+      throw new UnauthorizedException('Incorrect username or password');
+    const pwd_bool = await bcrypt.compare(data.password, user.password);
+    if (!pwd_bool)
+      throw new UnauthorizedException('Incorrect username or password');
+    const token = await this.generateToken(user.email);
+    return new UserLoginResponseDto({ ...user, token });
   }
-
 
   async register(data: UserRegisterDto): Promise<Partial<UserResponseDto>> {
     const hash = await bcrypt.hash(data.password, 10);

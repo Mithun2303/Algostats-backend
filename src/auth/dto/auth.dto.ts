@@ -36,15 +36,13 @@ export class UserRegisterDto {
   leetcode: string;
 
   @IsString()
-  class:string
+  class: string;
 
   @IsString()
-  stream:string
+  stream: string;
 
   @IsString()
-  batch:string
-
-
+  batch: string;
 }
 
 export class UserResponseDto {
@@ -52,50 +50,53 @@ export class UserResponseDto {
   @IsString()
   @IsNotEmpty()
   id: string;
-  
+
   @Expose()
   @IsString()
   @IsEmail()
   @IsNotEmpty()
   email: string;
-  
+
   @Expose()
   @IsString()
   linkedIn: string;
-  
+
   @Expose()
   @IsString()
   github: string;
-  
+
   @Expose()
   @IsString()
   leetcode: string;
-  
+
   @Expose()
   @IsString()
-  @IsNotEmpty()
   class: string;
 
   @Expose()
   @IsString()
-  stream:string
+  stream: string;
+
+  @Expose()
+  @IsString()
+  role: string;
   
   @Expose()
   @IsString()
-  batch:string
+  batch: string;
   constructor(partial: Partial<UserResponseDto> | Partial<Event>) {
     Object.assign(this, partial);
   }
 }
 
-export class UserLoginResponseDto{
+export class UserLoginResponseDto {
   @Expose()
   @IsString()
-  token:string
+  token: string;
 
   @Expose()
   @IsString()
-  id:string
+  id: string;
 
   @Expose()
   @IsString()
@@ -104,13 +105,13 @@ export class UserLoginResponseDto{
 
   @Expose()
   @IsString()
-  stream:string
-  
+  stream: string;
+
   @Expose()
   @IsString()
-  batch:string
+  batch: string;
 
-  constructor(partial:Partial<UserLoginResponseDto>|Partial<Event> ){
-    Object.assign(this,partial)
+  constructor(partial: Partial<UserLoginResponseDto> | Partial<Event>) {
+    Object.assign(this, partial);
   }
 }

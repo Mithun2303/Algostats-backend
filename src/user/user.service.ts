@@ -5,6 +5,7 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
 import { LeetcodeService } from 'src/user/leetcode.service';
 import { TopicService } from 'src/topic/topic.service';
+import { UserResponseDto } from 'src/auth/dto/auth.dto';
 
 @Injectable()
 export class UserService {
@@ -13,69 +14,18 @@ export class UserService {
     private readonly leetcodeService: LeetcodeService,
     private readonly topicService: TopicService,
   ) {}
-  async create(createUserchemaDto: Prisma.UserCreateInput) {
-    return this.databaseService.user.create({
-      data: createUserchemaDto,
-    });
-  }
 
-  async findAll() {
-    return `This action returns all userchema`;
-  }
-
-  async getOne(email) {
+  async getOne(email: string):Promise<UserResponseDto> {
     return await this.databaseService.user.findUnique({
-      where:{
-        email:email
-      }
-    })
-  }
-
-  async update(id: string, updateUserchemaDto: Prisma.UserUpdateInput) {
-    return this.databaseService.user.update({
       where: {
-        id,
-      },
-      data: updateUserchemaDto,
+        email
+       },
     });
   }
-
-  async remove(id: number) {
-    return `This action removes a #${id} userchema`;
-  }
-
   async generateBackup(id: string) {
-    const user = await this.databaseService.user.findFirst({
-      where: { AND: [{ id: id }, { leetcode: { not: null } }] },
-    });
     // const leetcode_id = user.leetcode;
-    const problem_list = await this.leetcodeService.listRecentProblem(user);
-    problem_list.forEach(async (problem) => {
-      const val = await this.databaseService.problem.findFirst({
-        where: {
-          id: problem.id,
-        },
-      });
-
-      if (val == null) {
-        const difficulty = await this.leetcodeService.problemDifficulty(
-          problem.titleSlug,
-        );
-        const topics = await this.leetcodeService.problemTopics(
-          problem.titleSlug,
-        );
-        if (topics.length > 0) {
-          topics.forEach(async (topic) => {
-            try {
-              await this.topicService.create({ id: topic.name });
-            } catch (error) {
-              console.log(error);
-            }
-          });
-        }
-      }
-    });
-    return problem_list;
+    // });
+    // return problem_list;
   }
 
   // async problemDetails(titleSlug: string) {
