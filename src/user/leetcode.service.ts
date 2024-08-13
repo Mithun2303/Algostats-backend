@@ -8,63 +8,35 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 export class LeetcodeService {
   constructor(private readonly httpService: HttpService) {}
 
-  async listRecentProblem(user: Prisma.UsersUpdateInput) {
+  async listRecentProblem(user) {
     console.log(user);
     const limit = 100;
-    // const query = `
-    //       query recentAcSubmissions($username: String!, $limit: Int!) {
-    //         recentAcSubmissionList(username: $username, limit: $limit) {
-    //           id
-    //           title
-    //           titleSlug
-    //           timestamp
-    //           questionDetails:question(titleSlug:titleSlug) {
-    //             difficulty
-    //             topicTags {
-    //             slug
-    //             }
-    //         }
-    //       }
-    //     `;
-    const query = `query recentAcSubmissionsWithDetails($username: String!, $limit: Int!) {
-  recentAcSubmissionList(username: $username, limit: $limit) {
-    id
-    title
-    titleSlug
-    timestamp
-    questionDetails: question(titleSlug: titleSlug) {
-      difficulty
-      topicTags {
-        slug
+    const query = `
+    query recentAcSubmissionsWithQuestionDetails($username: String!, $limit: Int!) {
+      recentAcSubmissionList(username: $username, limit: $limit) {
+        id
+        title
+        titleSlug
+        timestamp
       }
-    }
-  }
-}
-`;
+    }`;
 
     const variables = {
       username: user.leetcode,
       limit: limit,
-    };
-
+    };    
     const url = 'https://leetcode.com/graphql/';
 
     try {
-      const result = await firstValueFrom(
+      const result = (await firstValueFrom(
         this.httpService.post(url, {
           query: query,
           variables: variables,
         }),
-      );
-      let list = result.data.data.recentAcSubmissionList;
-      list = list.filter((element) => element.timestamp < user.lastBackupTime);
+      )).data.data.recentAcSubmissionList;
 
-      // list.forEach(async(element) => {
-      //   console.log(await this.problemDetails(element.titleSlug))
-      // });
-      console.log(list);
-      // console.log(await this.problemDetails(result[0].titleSlug));
-      return list;
+      return result.filter((element) => element.timestamp < user.lastBackupTime);
+
     } catch (error) {
       throw new HttpException(
         'Error fetching data from third party GraphQL API',
