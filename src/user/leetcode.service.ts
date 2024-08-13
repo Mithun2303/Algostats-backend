@@ -8,7 +8,7 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 export class LeetcodeService {
   constructor(private readonly httpService: HttpService) {}
 
-  async listRecentProblem(user: Prisma.UsersUpdateInput) {
+  async listRecentProblem(user: Prisma.UserUpdateInput) {
     console.log(user);
     const limit = 100;
     // const query = `

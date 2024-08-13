@@ -13,38 +13,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Class {
-  id         String   @id @default(uuid())
-  stream     String
-  batch      Int
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  name Users[]
-  Task Task[]
-}
-
-// model Batch {
-
-// }
-model Users {
-  id             String   @id
-  // name                String //remove
-  email          String?
-  classId        String
-  role           String   @default("STUDENT")
+model User {
+  id             String         @id
+  email          String         @unique
+  password       String
+  role           String         @default("STUDENT")
   linkedIn       String?
   github         String?
   leetcode       String?
-  lastBackupTime DateTime @default(now())
+  class          String?
+  stream         String?
+  batch          String?
+  lastBackupTime DateTime       @default(now())
+  created_at     DateTime       @default(now())
+  updated_at     DateTime       @updatedAt
+  solves         Problem[]
+  User_Problem   User_Problem[]
+  User_Task      User_Task[]
+  Task           Task[]
+}
 
+model User_Task {
+  timestamp  DateTime @default(now())
+  taskId     String
+  userId     String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  solves       Problem[]
-  class        Class          @relation(fields: [classId], references: [id])
-  User_Problem User_Problem[]
-  Task         Task[]
+  task Task @relation(fields: [taskId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+
+  @@id([taskId, userId])
+}
+
+model Task {
+  id           String      @id @default(uuid())
+  count        Int
+  assignedById String?     @unique
+  assignedBy   User?       @relation(fields: [userId], references: [id])
+  timestamp    DateTime    @default(now())
+  deadline     DateTime    @default(now())
+  created_at   DateTime    @default(now())
+  updated_at   DateTime    @updatedAt
+  User_Task    User_Task[]
+  userId       String
 }
 
 model Problem {
@@ -58,7 +70,7 @@ model Problem {
   updated_at DateTime   @updatedAt
 
   topics        Topic[]
-  solved        Users[]
+  solved        User[]
   Topic_Problem Topic_Problem[]
   User_Problem  User_Problem[]
 }
@@ -71,7 +83,7 @@ model User_Problem {
   updated_at DateTime @updatedAt
 
   problem Problem @relation(fields: [problemId], references: [id])
-  user    Users   @relation(fields: [userId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
 
   @@id([problemId, userId])
 }
@@ -97,19 +109,15 @@ model Topic_Problem {
   @@id([topicId, problemId])
 }
 
-model Task {
-  id         String   @id @default(uuid())
-  classId    String
-  count      Int
-  assignedBy String
-  timestamp  DateTime @default(now())
-  deadline   DateTime @default(now())
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+// model UserTask {
+//   assignee   User   @relation("referral", fields: [assigneeId], references: [id], onDelete: Cascade)
+//   assigneeId String
 
-  assignee Users @relation(fields: [assignedBy], references: [id])
-  class    Class @relation(fields: [id], references: [id])
-}
+//   assignedBy   User   @relation("referredBy", fields: [assignedById], references: [id], onDelete: Cascade)
+//   assignedById String
+
+//   @@id([assigneeId, assignedById])
+// }
 
 // enum Roles {
 //   STUDENT
