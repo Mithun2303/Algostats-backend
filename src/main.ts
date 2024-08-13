@@ -33,6 +33,7 @@ async function bootstrap() {
     .addTag('auth', 'Authentication Routes')
     .addTag('user', 'User Managemenst Routes')
     .addTag('task', 'Task Management Routes')
+    .addTag('leaderboard', 'Leaderboard Management Routes')
     .addBearerAuth()
     .build();
 

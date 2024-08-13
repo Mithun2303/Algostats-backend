@@ -5,9 +5,10 @@ import { DatabaseModule } from './database/database.module';
 import { UserSchemaModule } from './user_schema/user_schema.module';
 import { ClassModule } from './class/class.module';
 import { TopicModule } from './topic/topic.module';
+import { LeaderboardModule } from './leaderboard/leaderboard.module';
 
 @Module({
-  imports: [DatabaseModule, UserSchemaModule, ClassModule, TopicModule],
+  imports: [DatabaseModule, UserSchemaModule, ClassModule, TopicModule,LeaderboardModule],
   controllers: [AppController],
   providers: [AppService],
 })
