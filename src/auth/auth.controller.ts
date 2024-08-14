@@ -51,4 +51,7 @@ export class AuthController {
   async register(@Body() body: UserRegisterDto) {
     return new UserResponseDto(await this.authService.register(body));
   }
+
+  // @Post('/register/bulk')
+  // async registerBulk(@Body)
 }

@@ -14,23 +14,51 @@ datasource db {
 }
 
 model User {
-  id             String         @id
-  email          String         @unique
+  id             String   @id
+  email          String   @unique
   password       String
-  role           String         @default("STUDENT")
+  role           String   @default("STUDENT")
   linkedIn       String?
   github         String?
-  leetcode       String?
+  leetcode       String?  @unique
   class          String?
   stream         String?
   batch          String?
-  lastBackupTime DateTime       @default(now())
-  created_at     DateTime       @default(now())
-  updated_at     DateTime       @updatedAt
-  solves         Problem[]
-  User_Problem   User_Problem[]
-  User_Task      User_Task[]
-  Task           Task[]
+  lastBackupTime DateTime @default(now())
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  Problem   User_Problem[]
+  User_Task User_Task[]
+  Task      Task[]
+}
+
+model Problem {
+  id         String     @id @default(uuid())
+  name       String
+  platform   String     @default("Leetcode")
+  points     Int
+  // description          String
+  difficulty Difficulty
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+
+  topics        Topic[]
+  User          User_Problem[]
+  Topic_Problem Topic_Problem[]
+}
+
+model User_Problem {
+  timestamp  DateTime @default(now())
+  created_at DateTime @default(now())
+
+  problem   Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  problemId String
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  @@id([problemId, userId])
 }
 
 model User_Task {
@@ -59,35 +87,6 @@ model Task {
   userId       String
 }
 
-model Problem {
-  id         String     @id @default(uuid())
-  name       String
-  platform   String     @default("Leetcode")
-  points     Int
-  // description          String
-  difficulty Difficulty
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
-
-  topics        Topic[]
-  solved        User[]
-  Topic_Problem Topic_Problem[]
-  User_Problem  User_Problem[]
-}
-
-model User_Problem {
-  timestamp  DateTime @default(now())
-  problemId  String
-  userId     String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  problem Problem @relation(fields: [problemId], references: [id])
-  user    User    @relation(fields: [userId], references: [id])
-
-  @@id([problemId, userId])
-}
-
 model Topic {
   id         String   @id @default(uuid())
   created_at DateTime @default(now())
@@ -103,7 +102,7 @@ model Topic_Problem {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  topic      Topic    @relation(fields: [topicId], references: [id])
+  topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
   problem    Problem  @relation(fields: [problemId], references: [id])
 
   @@id([topicId, problemId])

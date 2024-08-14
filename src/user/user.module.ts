@@ -10,7 +10,7 @@ import { ProblemService } from './problem.service';
 @Module({
   imports: [HttpModule, TopicModule,AuthModule],
   controllers: [UserController],
-  providers: [UserService, LeetcodeService,ProblemService],
+  providers: [UserService, ProblemService,LeetcodeService],
   exports: [UserService],
 })
 export class UserModule {}
