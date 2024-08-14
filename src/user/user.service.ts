@@ -22,12 +22,25 @@ export class UserService {
        },
     });
   }
-  async generateBackup(id: string) {
-    // const leetcode_id = user.leetcode;
-    // });
-    // return problem_list;
-  }
 
+  async getOneById(id: string):Promise<UserResponseDto> {
+    return await this.databaseService.user.findUnique({
+      where: {
+        id
+       },
+    });
+  }
+  
+  async updateBackupTime(id:string){
+    return this.databaseService.user.update({
+      where:{
+        id
+      },
+      data:{
+        lastBackupTime:new Date()
+      }
+    })
+  }
   // async problemDetails(titleSlug: string) {
   //     const query = `
   //     query singleQuestionTopicTags($titleSlug: String!) {
