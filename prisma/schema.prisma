@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["views"]
 }
 
 datasource db {
@@ -28,7 +29,7 @@ model User {
   created_at     DateTime @default(now())
   updated_at     DateTime @updatedAt
 
-  Problem   User_Problem[]
+  solves    User_Problem[]
   User_Task User_Task[]
   Task      Task[]
 }
@@ -44,7 +45,7 @@ model Problem {
   updated_at DateTime   @updatedAt
 
   topics        Topic[]
-  User          User_Problem[]
+  solvedBy      User_Problem[]
   Topic_Problem Topic_Problem[]
 }
 
@@ -103,11 +104,24 @@ model Topic_Problem {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  problem    Problem  @relation(fields: [problemId], references: [id])
+  problem    Problem  @relation(fields: [problemId], references: [id], onDelete: Cascade)
 
   @@id([topicId, problemId])
 }
 
+
+view leaderboard{
+  userId String
+  class String
+  stream String
+  batch Int
+  problemId String
+points Int
+timestamp DateTime
+
+@@unique([userId,problemId])
+
+}
 // model UserTask {
 //   assignee   User   @relation("referral", fields: [assigneeId], references: [id], onDelete: Cascade)
 //   assigneeId String

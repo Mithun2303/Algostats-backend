@@ -1,18 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
-import { HttpException, HttpStatus } from '@nestjs/common';
-import { firstValueFrom } from 'rxjs';
-import { LeetcodeService } from 'src/user/leetcode.service';
-import { TopicService } from 'src/topic/topic.service';
+import { HttpException, HttpStatus } from '@nestjs/common'
 import { RecentAcSubmissionList } from './dto/leetcode.dto';
 import { UserResponseDto } from 'src/auth/dto/auth.dto';
+import { UserProblemResponseDto } from './dto/user.dto';
+import { TopicService } from './topic.service';
 
 @Injectable()
 export class ProblemService {
   constructor(
     private readonly databaseService: DatabaseService,
-    private readonly leetcodeService: LeetcodeService,
     private readonly topicService: TopicService,
   ) {}
   async findExcluded(
@@ -34,7 +32,8 @@ export class ProblemService {
     ).map((element) => element.id);
 
     const includedProblem = data.filter(
-      (element) => element.titleSlug == problems.find((ele) => ele == element.titleSlug),
+      (element) =>
+        element.titleSlug == problems.find((ele) => ele == element.titleSlug),
     );
     includedProblem.forEach(async (element) => {
       try {
@@ -54,24 +53,33 @@ export class ProblemService {
     return excludedProblem;
   }
 
-  async addUserProblem(
-    excluded_problem: RecentAcSubmissionList[],
-    user: UserResponseDto,
-  ) {
-    excluded_problem.forEach(async (element) => {
-      try {
-
-          console.log(await this.databaseService.user_Problem.create({
-            data: {
-              timestamp: element.timeStamp,
-              problemId: element.titleSlug,
-              userId: user.id,
+  async getUserProblems(id: string): Promise<UserProblemResponseDto[]> {
+    return (
+      await this.databaseService.user_Problem.findMany({
+        where: {
+          userId: id,
+        },
+        select: {
+          problem: {
+            select: {
+              name: true,
+              difficulty: true,
             },
-          }))
-        
-      } catch (error) {
-        console.log(error)
-      }
-    });
+          },
+        },
+      })
+    ).map((element) => element.problem);
+  }
+
+  async addUserProblem(element: RecentAcSubmissionList, user: UserResponseDto) {
+    console.log(
+      await this.databaseService.user_Problem.create({
+        data: {
+          timestamp: element.timeStamp,
+          problemId: element.titleSlug,
+          userId: user.id,
+        },
+      }),
+    );
   }
 }
