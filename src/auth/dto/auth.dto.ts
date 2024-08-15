@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import { IsDate, IsEmail, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { Expose } from 'class-transformer';
 
 export class UserLoginDto {
@@ -80,6 +80,10 @@ export class UserResponseDto {
   @Expose()
   @IsString()
   role: string;
+
+
+  @IsDate()
+  lastBackupTime;
   
   @Expose()
   @IsString()

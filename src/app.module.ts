@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { UserModule } from './user/user.module';
-import { TopicModule } from './topic/topic.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 
@@ -11,7 +10,6 @@ import { JwtModule } from '@nestjs/jwt';
   imports: [
     DatabaseModule,
     UserModule,
-    TopicModule,
     AuthModule,
     JwtModule.registerAsync({
       global: true,

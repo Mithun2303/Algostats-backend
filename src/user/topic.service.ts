@@ -8,7 +8,10 @@ export class TopicService {
   create(createTopicDto: Prisma.TopicCreateInput) {
     return this.databaseService.topic.create({ data: createTopicDto });
   }
+  createTopicProblem(data:Prisma.Topic_ProblemUncheckedCreateInput){
+    return this.databaseService.topic_Problem.create({ data });
 
+  }
   findAll() {
     return `This action returns all topic`;
   }
