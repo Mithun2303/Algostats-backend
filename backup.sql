@@ -303,6 +303,30 @@ flatten-binary-tree-to-linked-list	Flatten Binary Tree to Linked List	Leetcode	1
 sort-colors	Sort Colors	Leetcode	10	MEDIUM	2024-08-15 13:38:45.804	2024-08-15 13:38:45.804
 remove-nth-node-from-end-of-list	Remove Nth Node From End of List	Leetcode	10	MEDIUM	2024-08-15 13:38:45.804	2024-08-15 13:38:45.804
 longest-common-prefix	Longest Common Prefix	Leetcode	5	EASY	2024-08-15 13:38:45.804	2024-08-15 13:38:45.804
+two-sum	Two Sum	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+reverse-string	Reverse String	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+ransom-note	Ransom Note	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+minimum-bit-flips-to-convert-number	Minimum Bit Flips to Convert Number	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+to-be-or-not-to-be	To Be Or Not To Be	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+rotate-string	Rotate String	Leetcode	5	EASY	2024-08-15 14:05:55.306	2024-08-15 14:05:55.306
+find-numbers-with-even-number-of-digits	Find Numbers with Even Number of Digits	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+return-length-of-arguments-passed	Return Length of Arguments Passed	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+fizz-buzz	Fizz Buzz	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+apply-transform-over-each-element-in-array	Apply Transform Over Each Element in Array	Leetcode	5	EASY	2024-08-15 14:05:55.306	2024-08-15 14:05:55.306
+number-of-steps-to-reduce-a-number-to-zero	Number of Steps to Reduce a Number to Zero	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+filter-elements-from-array	Filter Elements from Array	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+function-composition	Function Composition	Leetcode	5	EASY	2024-08-15 14:05:55.306	2024-08-15 14:05:55.306
+running-sum-of-1d-array	Running Sum of 1d Array	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+counter	Counter	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+intersection-of-two-linked-lists	Intersection of Two Linked Lists	Leetcode	5	EASY	2024-08-15 14:02:22.03	2024-08-15 14:02:22.03
+valid-anagram	Valid Anagram	Leetcode	5	EASY	2024-08-15 14:05:55.306	2024-08-15 14:05:55.306
+count-and-say	Count and Say	Leetcode	10	MEDIUM	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+largest-odd-number-in-string	Largest Odd Number in String	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+sort-list	Sort List	Leetcode	10	MEDIUM	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+delete-the-middle-node-of-a-linked-list	Delete the Middle Node of a Linked List	Leetcode	10	MEDIUM	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+create-hello-world-function	Create Hello World Function	Leetcode	5	EASY	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+add-two-numbers	Add Two Numbers	Leetcode	10	MEDIUM	2024-08-15 14:05:55.305	2024-08-15 14:05:55.305
+counter-ii	Counter II	Leetcode	5	EASY	2024-08-15 14:05:55.306	2024-08-15 14:05:55.306
 contains-duplicate	Contains Duplicate	Leetcode	5	EASY	2024-08-15 13:08:32.48	2024-08-15 13:08:32.48
 \.
 
@@ -341,6 +365,7 @@ simulation	2024-08-15 08:46:13.351	2024-08-15 08:46:13.351
 depth-first-search	2024-08-15 13:08:13.193	2024-08-15 13:08:13.193
 breadth-first-search	2024-08-15 13:08:13.194	2024-08-15 13:08:13.194
 strongly-connected-component	2024-08-15 13:08:13.194	2024-08-15 13:08:13.194
+merge-sort	2024-08-15 14:05:54.468	2024-08-15 14:05:54.468
 tree	2024-08-15 13:38:43.558	2024-08-15 13:38:43.558
 binary-tree	2024-08-15 13:38:43.559	2024-08-15 13:38:43.559
 matrix	2024-08-15 08:46:27.455	2024-08-15 08:46:27.455
@@ -348,6 +373,7 @@ divide-and-conquer	2024-08-15 13:08:22.785	2024-08-15 13:08:22.785
 queue	2024-08-15 08:46:27.562	2024-08-15 08:46:27.562
 trie	2024-08-15 13:38:44.799	2024-08-15 13:38:44.799
 string-matching	2024-08-15 13:08:25.291	2024-08-15 13:08:25.291
+prefix-sum	2024-08-15 14:02:19.667	2024-08-15 14:02:19.667
 brainteaser	2024-08-15 13:08:36.183	2024-08-15 13:08:36.183
 game-theory	2024-08-15 13:08:36.352	2024-08-15 13:08:36.352
 \.
@@ -566,9 +592,44 @@ string	longest-palindromic-substring	2024-08-15 13:38:45.818	2024-08-15 13:38:45
 binary-tree	flatten-binary-tree-to-linked-list	2024-08-15 13:38:45.818	2024-08-15 13:38:45.818
 depth-first-search	flatten-binary-tree-to-linked-list	2024-08-15 13:38:45.818	2024-08-15 13:38:45.818
 tree	flatten-binary-tree-to-linked-list	2024-08-15 13:38:45.818	2024-08-15 13:38:45.818
+math	number-of-steps-to-reduce-a-number-to-zero	2024-08-15 14:02:22.037	2024-08-15 14:02:22.037
+simulation	fizz-buzz	2024-08-15 14:02:22.038	2024-08-15 14:02:22.038
+string	fizz-buzz	2024-08-15 14:02:22.038	2024-08-15 14:02:22.038
+array	find-numbers-with-even-number-of-digits	2024-08-15 14:02:22.043	2024-08-15 14:02:22.043
+string	valid-anagram	2024-08-15 14:05:55.314	2024-08-15 14:05:55.314
+merge-sort	sort-list	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
 hash-table	make-two-arrays-equal-by-reversing-subarrays	2024-08-15 13:08:17.223	2024-08-15 13:08:17.223
 divide-and-conquer	number-of-1-bits	2024-08-15 13:08:27.369	2024-08-15 13:08:27.369
 hash-table	majority-element	2024-08-15 13:08:32.5	2024-08-15 13:08:32.5
+math	fizz-buzz	2024-08-15 14:02:22.038	2024-08-15 14:02:22.038
+recursion	add-two-numbers	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
+bit-manipulation	number-of-steps-to-reduce-a-number-to-zero	2024-08-15 14:02:22.037	2024-08-15 14:02:22.037
+bit-manipulation	minimum-bit-flips-to-convert-number	2024-08-15 14:05:55.314	2024-08-15 14:05:55.314
+divide-and-conquer	sort-list	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
+linked-list	intersection-of-two-linked-lists	2024-08-15 14:02:22.04	2024-08-15 14:02:22.04
+two-pointers	intersection-of-two-linked-lists	2024-08-15 14:02:22.04	2024-08-15 14:02:22.04
+counting	ransom-note	2024-08-15 14:02:22.044	2024-08-15 14:02:22.044
+linked-list	delete-the-middle-node-of-a-linked-list	2024-08-15 14:05:55.316	2024-08-15 14:05:55.316
+two-pointers	delete-the-middle-node-of-a-linked-list	2024-08-15 14:05:55.316	2024-08-15 14:05:55.316
+hash-table	intersection-of-two-linked-lists	2024-08-15 14:02:22.04	2024-08-15 14:02:22.04
+string	ransom-note	2024-08-15 14:02:22.044	2024-08-15 14:02:22.044
+two-pointers	reverse-string	2024-08-15 14:02:22.04	2024-08-15 14:02:22.04
+two-pointers	sort-list	2024-08-15 14:05:55.318	2024-08-15 14:05:55.318
+hash-table	two-sum	2024-08-15 14:02:22.041	2024-08-15 14:02:22.041
+greedy	largest-odd-number-in-string	2024-08-15 14:05:55.315	2024-08-15 14:05:55.315
+hash-table	ransom-note	2024-08-15 14:02:22.044	2024-08-15 14:02:22.044
+sorting	sort-list	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
+prefix-sum	running-sum-of-1d-array	2024-08-15 14:02:22.041	2024-08-15 14:02:22.041
+math	largest-odd-number-in-string	2024-08-15 14:05:55.315	2024-08-15 14:05:55.315
+string-matching	rotate-string	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
+array	two-sum	2024-08-15 14:02:22.041	2024-08-15 14:02:22.041
+hash-table	valid-anagram	2024-08-15 14:05:55.314	2024-08-15 14:05:55.314
+array	running-sum-of-1d-array	2024-08-15 14:02:22.041	2024-08-15 14:02:22.041
+string	largest-odd-number-in-string	2024-08-15 14:05:55.315	2024-08-15 14:05:55.315
+linked-list	add-two-numbers	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
+string	reverse-string	2024-08-15 14:02:22.04	2024-08-15 14:02:22.04
+string	count-and-say	2024-08-15 14:05:55.315	2024-08-15 14:05:55.315
+string	rotate-string	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
 sorting	make-two-arrays-equal-by-reversing-subarrays	2024-08-15 13:08:17.223	2024-08-15 13:08:17.223
 greedy	find-valid-matrix-given-row-and-column-sums	2024-08-15 13:08:17.258	2024-08-15 13:08:17.258
 counting	sum-of-unique-elements	2024-08-15 13:08:27.372	2024-08-15 13:08:27.372
@@ -581,6 +642,9 @@ sorting	missing-number	2024-08-15 13:08:32.499	2024-08-15 13:08:32.499
 array	remove-element	2024-08-15 13:08:32.501	2024-08-15 13:08:32.501
 array	count-pairs-whose-sum-is-less-than-target	2024-08-15 13:08:37.523	2024-08-15 13:08:37.523
 array	maximum-count-of-positive-integer-and-negative-integer	2024-08-15 13:08:40.015	2024-08-15 13:08:40.015
+sorting	valid-anagram	2024-08-15 14:05:55.315	2024-08-15 14:05:55.315
+math	add-two-numbers	2024-08-15 14:05:55.319	2024-08-15 14:05:55.319
+linked-list	sort-list	2024-08-15 14:05:55.318	2024-08-15 14:05:55.318
 array	find-valid-matrix-given-row-and-column-sums	2024-08-15 13:08:17.258	2024-08-15 13:08:17.258
 string	roman-to-integer	2024-08-15 13:08:27.372	2024-08-15 13:08:27.372
 bit-manipulation	reverse-bits	2024-08-15 13:08:27.375	2024-08-15 13:08:27.375
@@ -611,6 +675,8 @@ COPY public."User" (id, email, password, role, "linkedIn", github, leetcode, cla
 22PC33	22pc33@psgtech.ac.in	$2b$10$dDBvwbBcY5cCldtCe8tbPOZwGkkreJzHHE37lnkDXcL8GEo4JRjnS	STUDENT			shreenithi_2003	22PC	CS	2022	2024-04-13 17:08:16.728	2024-08-14 15:34:22.784	2024-08-14 15:34:22.784
 22PC37	22pc37@psgtech.ac.in	$2b$10$jPuvS3lJbqsJ6yS0TIYHauWWRBxZp1AtRqY3q/l2obrL7L0P.5MEa	STUDENT			vengateshwaran	22PC	CS	2022	2024-04-13 17:08:16.728	2024-08-14 09:02:35.27	2024-08-14 09:14:51.139
 22PW01	22pw01@psgtech.ac.in	$2b$10$t4YW2j3sGu1C8RrFN2S9wOs5kUQ4cMX6EumX/BX8GNhMkCXI2szwW	STUDENT	\N	\N	Ajay_180505	22PW	SS	2022	2024-08-15 13:37:49.462	2024-08-15 13:37:49.462	2024-08-15 13:37:49.462
+22PW29	22pw29@psgtech.ac.in	$2b$10$.9Yf/KiTs4/uk3/538sP8uUJhUZAvA1q3WYx9PgrxzgzupAdO5NIq	STUDENT	\N	\N	Prem-Dharshan	22PW	SS	2022	2024-08-15 14:02:09.935	2024-08-15 14:02:09.935	2024-08-15 14:02:09.935
+22PT07	22pt07@psgtech.ac.in	$2b$10$5XmiOIgzw3KvJPcBWn.mqOMj96G67XKMLpow2wHJBaX87wMpltjsi	STUDENT	\N	\N	thatcatfromspace	22PT	TCS	2022	2024-08-15 14:05:43.818	2024-08-15 14:05:43.818	2024-08-15 14:05:43.818
 \.
 
 
@@ -777,6 +843,42 @@ COPY public."User_Problem" ("timestamp", created_at, "problemId", "userId") FROM
 2024-08-15 13:38:45.818	2024-08-15 13:38:45.818	longest-palindromic-substring	22PW01
 2024-08-15 13:38:45.819	2024-08-15 13:38:45.819	sort-colors	22PW01
 2024-08-15 13:38:45.818	2024-08-15 13:38:45.818	flatten-binary-tree-to-linked-list	22PW01
+2024-08-15 14:02:18.987	2024-08-15 14:02:18.987	linked-list-cycle	22PW29
+2024-08-15 14:02:22.044	2024-08-15 14:02:22.044	ransom-note	22PW29
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	squares-of-a-sorted-array	22PW29
+2024-08-15 14:02:22.038	2024-08-15 14:02:22.038	fizz-buzz	22PW29
+2024-08-15 14:02:22.043	2024-08-15 14:02:22.043	find-numbers-with-even-number-of-digits	22PW29
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	palindrome-number	22PW29
+2024-08-15 14:05:55.314	2024-08-15 14:05:55.314	minimum-bit-flips-to-convert-number	22PT07
+2024-08-15 14:05:55.319	2024-08-15 14:05:55.319	rotate-string	22PT07
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	max-consecutive-ones	22PW29
+2024-08-15 14:05:55.315	2024-08-15 14:05:55.315	count-and-say	22PT07
+2024-08-15 14:05:55.319	2024-08-15 14:05:55.319	sort-list	22PT07
+2024-08-15 14:05:55.321	2024-08-15 14:05:55.321	counter-ii	22PT07
+2024-08-15 14:05:55.314	2024-08-15 14:05:55.314	filter-elements-from-array	22PT07
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	middle-of-the-linked-list	22PW29
+2024-08-15 14:02:22.037	2024-08-15 14:02:22.037	number-of-steps-to-reduce-a-number-to-zero	22PW29
+2024-08-15 14:05:55.319	2024-08-15 14:05:55.319	add-two-numbers	22PT07
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	remove-duplicates-from-sorted-array	22PW29
+2024-08-15 14:05:55.316	2024-08-15 14:05:55.316	delete-the-middle-node-of-a-linked-list	22PT07
+2024-08-15 14:05:55.32	2024-08-15 14:05:55.32	counter	22PT07
+2024-08-15 14:02:22.04	2024-08-15 14:02:22.04	intersection-of-two-linked-lists	22PW29
+2024-08-15 14:02:22.041	2024-08-15 14:02:22.041	two-sum	22PW29
+2024-08-15 14:05:55.314	2024-08-15 14:05:55.314	to-be-or-not-to-be	22PT07
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	reverse-linked-list	22PW29
+2024-08-15 14:02:18.988	2024-08-15 14:02:18.988	richest-customer-wealth	22PW29
+2024-08-15 14:05:55.32	2024-08-15 14:05:55.32	function-composition	22PT07
+2024-08-15 14:05:55.316	2024-08-15 14:05:55.316	largest-odd-number-in-string	22PT07
+2024-08-15 14:05:55.32	2024-08-15 14:05:55.32	create-hello-world-function	22PT07
+2024-08-15 14:02:22.04	2024-08-15 14:02:22.04	reverse-string	22PW29
+2024-08-15 14:05:53.586	2024-08-15 14:05:53.586	palindrome-linked-list	22PT07
+2024-08-15 14:02:22.041	2024-08-15 14:02:22.041	running-sum-of-1d-array	22PW29
+2024-08-15 14:05:53.586	2024-08-15 14:05:53.586	linked-list-cycle	22PT07
+2024-08-15 14:05:55.315	2024-08-15 14:05:55.315	valid-anagram	22PT07
+2024-08-15 14:05:53.586	2024-08-15 14:05:53.586	kth-distinct-string-in-an-array	22PT07
+2024-08-15 14:05:53.587	2024-08-15 14:05:53.587	minimum-number-of-pushes-to-type-word-ii	22PT07
+2024-08-15 14:05:55.314	2024-08-15 14:05:55.314	return-length-of-arguments-passed	22PT07
+2024-08-15 14:05:55.316	2024-08-15 14:05:55.316	apply-transform-over-each-element-in-array	22PT07
 2024-08-15 13:08:35.865	2024-08-15 13:08:35.865	move-zeroes	22PC28
 2024-08-15 13:08:40.015	2024-08-15 13:08:40.015	odd-even-linked-list	22PC37
 \.
