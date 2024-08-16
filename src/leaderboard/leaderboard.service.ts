@@ -4,21 +4,15 @@ import { LeaderboardResponseDto } from './dto/leaderboard.dto';
 
 @Injectable()
 export class LeaderboardService {
-  constructor(
-    private readonly databaseService: DatabaseService,
-  ){}
-  async findLeaderboard() {
-    return `This action returns all leaderboard`;
-  }
-
-  async findClassLeaderboard(id: string) {
+  constructor(private readonly databaseService:DatabaseService){}
+  async findClassLeaderboard(id: string): Promise<LeaderboardResponseDto[]> {
     return (await this.databaseService.leaderboard.groupBy({
       by: ['userId'],
       where: {
         AND: [
           { class: id },
-          { timestamp: { gt: new Date() } },
-          { timestamp: { lt: new Date() } },
+          // { timestamp: { gt: new Date() } },
+          // { timestamp: { lt: new Date() } },
         ],
       },
       _sum: {
@@ -29,15 +23,10 @@ export class LeaderboardService {
           points: 'desc',
         },
       },
-    })).map((elt) => elt.userId , (et => et._sum.points))
+    })).map((elt) => {
+      const id = elt.userId;
+      const score = elt._sum.points
+      return {id,score}
+      })
   }
-async findStreamLeaderboard(id: string) {
-  return `This action returns a #${id} leaderboard`;
 }
-
-async findBatchLeaderboard(id: number) {
-  return `This action returns a #${id} leaderboard`;
-}
-};
-
-
