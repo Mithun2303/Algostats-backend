@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["views"]
 }
 
@@ -79,13 +79,11 @@ model Task {
   id           String      @id @default(uuid())
   count        Int
   assignedById String?     @unique
-  assignedBy   User?       @relation(fields: [userId], references: [id])
-  timestamp    DateTime    @default(now())
+  assignedBy   User?       @relation(fields: [assignedById], references: [id])
   deadline     DateTime    @default(now())
   created_at   DateTime    @default(now())
   updated_at   DateTime    @updatedAt
   User_Task    User_Task[]
-  userId       String
 }
 
 model Topic {
@@ -109,19 +107,18 @@ model Topic_Problem {
   @@id([topicId, problemId])
 }
 
-
-view leaderboard{
-  userId String
-  class String
-  stream String
-  batch Int
+view leaderboard {
+  userId    String
+  class     String
+  stream    String
+  batch     Int
   problemId String
-points Int
-timestamp DateTime
+  points    Int
+  timestamp DateTime
 
-@@unique([userId,problemId])
-
+  @@unique([userId, problemId])
 }
+
 // model UserTask {
 //   assignee   User   @relation("referral", fields: [assigneeId], references: [id], onDelete: Cascade)
 //   assigneeId String
