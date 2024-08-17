@@ -1,4 +1,10 @@
-import { IsDate, IsEmail, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import {
+  IsDate,
+  IsEmail,
+  IsNotEmpty,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
 import { Expose } from 'class-transformer';
 
 export class UserLoginDto {
@@ -24,13 +30,22 @@ export class UserRegisterDto {
 
   @IsString()
   @IsNotEmpty()
+  leetcode: string;
+}
+
+export class UserRegisterSingleDto {
+  @IsString()
+  @IsNotEmpty()
+  id: string;
+
+  @IsString()
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
+
+  @IsString()
+  @IsNotEmpty()
   password: string;
-
-  @IsString()
-  linkedIn: string;
-
-  @IsString()
-  github: string;
 
   @IsString()
   leetcode: string;
@@ -81,10 +96,9 @@ export class UserResponseDto {
   @IsString()
   role: string;
 
-
   @IsDate()
   lastBackupTime;
-  
+
   @Expose()
   @IsString()
   batch: string;
@@ -117,5 +131,21 @@ export class UserLoginResponseDto {
 
   constructor(partial: Partial<UserLoginResponseDto> | Partial<Event>) {
     Object.assign(this, partial);
+  }
+}
+
+export class UpdatePrDto {
+  @IsNotEmpty()
+  @IsString()
+  id: string;
+}
+
+export class ReturnDto {
+  @IsNotEmpty()
+  @Expose()
+  count: number;
+
+  constructor(partial:Partial<ReturnDto>|Partial<Event>){
+    Object.assign(this,partial);
   }
 }

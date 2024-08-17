@@ -1,13 +1,16 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import {
+  UpdatePrDto,
   UserLoginDto,
   UserLoginResponseDto,
   UserRegisterDto,
+  UserRegisterSingleDto,
   UserResponseDto,
 } from './dto/auth.dto';
 import * as bcrypt from 'bcrypt';
 import { DatabaseService } from 'src/database/database.service';
 import { JwtService } from '@nestjs/jwt';
+import { UserRole } from 'src/user/dto/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -38,7 +41,7 @@ export class AuthService {
     return new UserLoginResponseDto({ ...user, token });
   }
 
-  async register(data: UserRegisterDto): Promise<Partial<UserResponseDto>> {
+  async register(data: UserRegisterSingleDto): Promise<Partial<UserResponseDto>> {
     const hash = await bcrypt.hash(data.password, 10);
     data.password = hash;
     return await this.databaseService.user.create({
@@ -46,8 +49,39 @@ export class AuthService {
     });
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  async registerBulk(data:UserRegisterDto[],user:UserResponseDto){
+      console.log(data,user);
+      const request = await data.map(async(elt)=>{
+        const id = elt.id;
+        const email = elt.email;
+        const password =await bcrypt.hash(elt.id,10);
+        const leetcode = elt.leetcode;
+        const classId = user.class;
+        const stream = user.stream;
+        const batch = user.batch;
+        return {id,email,password,leetcode,class:classId,stream,batch}
+      })
+      const response = await Promise.all(request);
+      console.log(response)
+    await this.databaseService.user.createMany({
+      data:response
+    })
+  }
+
+  async updatePr(tutorDet:UserResponseDto,prs:string[]) {
+    console.log(tutorDet,prs);
+    return await this.databaseService.user.updateMany({
+      where:{
+        id:{
+          in:prs
+        },
+        class:tutorDet.class,
+        batch:tutorDet.batch
+      },
+      data:{
+        role:UserRole.PLACEMENT_REPRESENTATIVE
+      }
+    })
   }
 
   findOne(id: number) {
