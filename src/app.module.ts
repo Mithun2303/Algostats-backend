@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ScheduleModule } from '@nestjs/schedule';
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ScheduleModule } from '@nestjs/schedule';
         },
       }),
     }),
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

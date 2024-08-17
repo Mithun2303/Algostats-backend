@@ -69,8 +69,8 @@ model User_Task {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  task Task @relation(fields: [taskId], references: [id])
-  user User @relation(fields: [userId], references: [id])
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([taskId, userId])
 }
@@ -78,7 +78,7 @@ model User_Task {
 model Task {
   id           String      @id @default(uuid())
   count        Int
-  assignedById String?     @unique
+  assignedById String?     
   assignedBy   User?       @relation(fields: [assignedById], references: [id])
   deadline     DateTime    @default(now())
   created_at   DateTime    @default(now())
