@@ -34,17 +34,6 @@ export class UserController {
     private readonly problemService: ProblemService,
   ) {}
 
-  @ApiOkResponse({
-    description: 'Successfully generated backup for user',
-  })
-  @ApiBearerAuth()
-  @AllowedRoles([UserRole.TUTOR, UserRole.STUDENT])
-  @UseGuards(AuthGaurd)
-  @Get('routine/:id')
-  @AllowAllRoles
-  @ApiOkResponse({
-    description: 'Successfully generated backup for user',
-  })
   @Get('problem/:id')
   async getUserProblems(
     @Param('id') id: string,
@@ -53,5 +42,11 @@ export class UserController {
       (elt) => new UserProblemResponseDto(elt),
     );
   }
-
+  @ApiBearerAuth()
+  @AllowAllRoles
+  @UseGuards(AuthGaurd)
+  @Get('me')
+  async getMe(@LoggedInUser()user : UserResponseDto){
+    return new UserResponseDto(user)
+  }
 }

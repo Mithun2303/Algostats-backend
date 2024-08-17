@@ -5,7 +5,7 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
 export class UserLoginDto {
   @IsString()
@@ -45,14 +45,12 @@ export class UserRegisterSingleDto {
 
   @IsString()
   @IsNotEmpty()
-  password: string;
-
-  @IsString()
-  leetcode: string;
+  role: string;
 
   @IsString()
   class: string;
 
+  @IsNotEmpty()
   @IsString()
   stream: string;
 
@@ -137,15 +135,30 @@ export class UserLoginResponseDto {
 export class UpdatePrDto {
   @IsNotEmpty()
   @IsString()
-  id: string;
+  id: string[];
+
+  @IsString()
+  stream: string;
+
+  @IsString()
+  batch: string;
+
+  @IsString()
+  class: string;
 }
 
-export class ReturnDto {
+export class ChangePasswordDto{
   @IsNotEmpty()
-  @Expose()
-  count: number;
+  @IsString()
+  password:string
+}
 
-  constructor(partial:Partial<ReturnDto>|Partial<Event>){
-    Object.assign(this,partial);
-  }
+export class UpdatePasswordDto{
+  @IsNotEmpty()
+  @IsString()
+  id:string
+
+  @IsNotEmpty()
+  @IsString()
+  password:string
 }

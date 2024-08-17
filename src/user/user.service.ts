@@ -75,8 +75,9 @@ export class UserService {
     //API request to find recent problems
     const problem_list = await this.leetcodeService.listRecentProblem(user);
     console.log(id);
+    
     //Update last backup time
-    await this.updateBackupTime(id);
+    // await this.updateBackupTime(id);
 
     // Service to find problems that is not in the db. Add user_problem relation if problem is in DB
     const excluded_problem = await this.problemService.findExcluded(
@@ -89,15 +90,5 @@ export class UserService {
       excluded_problem,
       user,
     );
-
-    // await new Promise<void>((resolve) => {
-    //   setTimeout(resolve, 3000);
-    // });
-
-    // //Add user problem details
-    // const userProblem = await this.problemService.addUserProblem(
-    //   excluded_problem,
-    //   user,
-    // );
   }
 }

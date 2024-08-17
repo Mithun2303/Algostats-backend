@@ -28,10 +28,10 @@ async function bootstrap() {
     .setDescription('API Description for ALGOSTATS')
     .setVersion('1.0.0')
     .addTag('auth', 'Authentication Routes')
-    .addTag('default')
-    .addTag('public', 'Public Routes')
     .addTag('user', 'User Managemenst Routes')
     .addTag('task', 'Task Management Routes')
+    .addTag('default')
+    .addTag('public', 'Public Routes')
     .addBearerAuth()
     .build();
 

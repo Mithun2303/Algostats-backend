@@ -1,5 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import {
+  UpdatePasswordDto,
   UpdatePrDto,
   UserLoginDto,
   UserLoginResponseDto,
@@ -11,6 +12,8 @@ import * as bcrypt from 'bcrypt';
 import { DatabaseService } from 'src/database/database.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserRole } from 'src/user/dto/user.dto';
+import AllowedRoles from 'src/user/decorator/allowedRoles.decorator';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -23,7 +26,7 @@ export class AuthService {
   }
 
   async generateToken(email: string) {
-    return this.jwt.signAsync({email});
+    return this.jwt.signAsync({ email });
   }
 
   async login(data: UserLoginDto) {
@@ -41,50 +44,73 @@ export class AuthService {
     return new UserLoginResponseDto({ ...user, token });
   }
 
-  async register(data: UserRegisterSingleDto): Promise<Partial<UserResponseDto>> {
-    const hash = await bcrypt.hash(data.password, 10);
-    data.password = hash;
+  async register(
+    data: UserRegisterSingleDto,
+  ): Promise<Partial<UserResponseDto>> {
+    const hash = await bcrypt.hash(data.id, 10);
+
     return await this.databaseService.user.create({
-      data,
+      data: {
+        id: data.id,
+        email: data.email,
+        role: data.role,
+        stream: data.stream,
+        batch: data.batch,
+        password: hash,
+        class: data.class,
+      },
     });
   }
 
-  async registerBulk(data:UserRegisterDto[],user:UserResponseDto){
-      console.log(data,user);
-      const request = await data.map(async(elt)=>{
+  async registerBulk(data: UserRegisterDto[], user: UserResponseDto) {
+    try {
+      console.log(data, user);
+      const request = await data.map(async (elt) => {
         const id = elt.id;
         const email = elt.email;
-        const password =await bcrypt.hash(elt.id,10);
+        const password = await bcrypt.hash(elt.id, 10);
         const leetcode = elt.leetcode;
         const classId = user.class;
         const stream = user.stream;
         const batch = user.batch;
-        return {id,email,password,leetcode,class:classId,stream,batch}
-      })
+        return { id, email, password, leetcode, class: classId, stream, batch };
+      });
       const response = await Promise.all(request);
-      console.log(response)
-    await this.databaseService.user.createMany({
-      data:response
-    })
+      console.log(response);
+      await this.databaseService.user.createMany({
+        data: response,
+        skipDuplicates: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  async updatePr(tutorDet:UserResponseDto,prs:string[]) {
-    console.log(tutorDet,prs);
+  async updatePr(body) {
+    console.log(body);
     return await this.databaseService.user.updateMany({
-      where:{
-        id:{
-          in:prs
+      where: {
+        id: {
+          in: body.prs,
         },
-        class:tutorDet.class,
-        batch:tutorDet.batch
+        class: body.class,
+        batch: body.batch,
+        stream: body.stream,
+      },
+      data: {
+        role: UserRole.PLACEMENT_REPRESENTATIVE,
+      },
+    });
+  }
+
+  async changePassword(obj:UpdatePasswordDto) {
+    return this.databaseService.user.update({
+      where:{
+        id:obj.id
       },
       data:{
-        role:UserRole.PLACEMENT_REPRESENTATIVE
+        password:await bcrypt.hash(obj.password,10)
       }
     })
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
   }
 }
