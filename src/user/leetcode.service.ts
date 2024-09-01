@@ -46,7 +46,7 @@ export class LeetcodeService {
       ).data.data.recentAcSubmissionList;
 
       return result.filter(
-        (element) => new Date(element.timestamp * 1000) >= user.lastBackupTime,
+        (element) => new Date(element.timestamp * 1000) > user.lastBackupTime,
       );
     } catch (error) {
       throw new HttpException(
