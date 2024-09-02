@@ -35,6 +35,18 @@ export class UserRegisterDto {
   @IsString()
   @IsNotEmpty()
   leetcode: string;
+
+  @IsString()
+  @IsNotEmpty()
+  linkedIn: string;
+
+  @IsString()
+  @IsNotEmpty()
+  github: string;
+
+  @IsString()
+  @IsNotEmpty()
+  classId: string;
 }
 
 export class UserRegisterSingleDto {

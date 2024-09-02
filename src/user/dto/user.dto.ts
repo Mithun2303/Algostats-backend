@@ -1,6 +1,6 @@
 import { Expose } from 'class-transformer';
 import { DifficultyLevels } from './problem.dto';
-import { IsString } from 'class-validator';
+import { IsNotEmpty, isNotEmpty, IsString } from 'class-validator';
 
 export enum UserRole {
   STUDENT = 'STUDENT',
@@ -21,4 +21,11 @@ export class UserProblemResponseDto {
   @Expose()
   @IsString()
   difficulty: string;
+}
+
+
+export class UserProblemDto{
+  @IsString()
+  @IsNotEmpty()
+  id:string
 }

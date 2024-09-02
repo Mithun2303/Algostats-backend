@@ -17,7 +17,7 @@ import { LeetcodeService } from './leetcode.service';
 import AllowedRoles, {
   AllowAllRoles,
 } from './decorator/allowedRoles.decorator';
-import { UserProblemResponseDto, UserRole } from './dto/user.dto';
+import { UserProblemDto, UserProblemResponseDto, UserRole } from './dto/user.dto';
 import { AuthGaurd } from 'src/auth/gaurd/auth.gaurd';
 import { ProblemService } from './problem.service';
 import { LoggedInUser } from './decorator/loggedIn.decorator';
@@ -34,11 +34,12 @@ export class UserController {
     private readonly problemService: ProblemService,
   ) {}
 
-  @Get('problem/:id')
+  @Post('problem/:limit')
   async getUserProblems(
-    @Param('id') id: string,
+    @Param('limit',ParseIntPipe) limit: number,
+    @Body() body:UserProblemDto
   ): Promise<UserProblemResponseDto[]> {
-    return (await this.problemService.getUserProblems(id)).map(
+    return (await this.problemService.getUserProblems(body.id,limit)).map(
       (elt) => new UserProblemResponseDto(elt),
     );
   }

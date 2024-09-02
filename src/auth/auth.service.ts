@@ -52,7 +52,7 @@ export class AuthService {
     return await this.databaseService.user.create({
       data: {
         id: data.id,
-        name:data.name,
+        name: data.name,
         email: data.email,
         role: data.role,
         stream: data.stream,
@@ -62,20 +62,47 @@ export class AuthService {
       },
     });
   }
+  async getStream(classId: string) {
+      if (/\d{2}PC/.test(classId)) {
+        return 'CS';
+      } else if (/\d{2}PT/.test(classId)) {
+        return 'TCS';
+      } else if (/\d{2}PW/.test(classId)) {
+        return 'SS';
+      } else if (/\d{2}PD/.test(classId)) {
+        return 'DS';
+      }
+      return null;
+  }
 
-  async registerBulk(data: UserRegisterDto[], user: UserResponseDto) {
+  async getBatch(classId:string){
+    return "20"+classId.slice(0,2);
+  }
+  async registerBulk(data: UserRegisterDto[]) {
     try {
-      console.log(data, user);
       const request = await data.map(async (elt) => {
         const id = elt.id;
         const email = elt.email;
         const name = elt.name;
         const password = await bcrypt.hash(elt.id, 10);
         const leetcode = elt.leetcode;
-        const classId = user.class;
-        const stream = user.stream;
-        const batch = user.batch;
-        return { id, email, name,password, leetcode, class: classId, stream, batch };
+        const linkedIn = elt.linkedIn;
+        const github = elt.github;
+        const classId = elt.classId;
+        const stream = await this.getStream(elt.classId);
+        const batch = await this.getBatch(elt.classId)
+        return {
+          id,
+          email,
+          name,
+          password,
+          leetcode,
+          class: classId,
+          stream,
+          batch,
+          linkedIn,
+          github
+        };
       });
       const response = await Promise.all(request);
       console.log(response);
@@ -105,14 +132,14 @@ export class AuthService {
     });
   }
 
-  async changePassword(obj:UpdatePasswordDto) {
+  async changePassword(obj: UpdatePasswordDto) {
     return this.databaseService.user.update({
-      where:{
-        id:obj.id
+      where: {
+        id: obj.id,
       },
-      data:{
-        password:await bcrypt.hash(obj.password,10)
-      }
-    })
+      data: {
+        password: await bcrypt.hash(obj.password, 10),
+      },
+    });
   }
 }

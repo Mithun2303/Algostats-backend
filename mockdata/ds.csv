@@ -1,41 +1,41 @@
-id,name,leetcode,email
-22PD01,AARTHI N J,Aarthinagaraj,22PD01@psgtech.ac.in
-22PD02,AHALYANJUNA S,Ahalyanjuna_S,22PD02@psgtech.ac.in
-22PD03,AKASH KUMAR A,AKASH_KUMAR_A_0603,22PD03@psgtech.ac.in
-22PD04,AKILA R,Akila_08,22PD04@psgtech.ac.in
-22PD05,AKSHAYA S,Akshaya_005,22PD05@psgtech.ac.in
-22PD06,ANUVARSANA K,anuvarsana,22PD06@psgtech.ac.in
-22PD07,BHUVANESH D,bhuvaneshd32,22PD07@psgtech.ac.in
-22PD08,BRINDHA SARATHI M,Brindha_Sarathi_M,22PD08@psgtech.ac.in
-22PD09,CHAITHANYA N,ChaithanyaNandan,22PD09@psgtech.ac.in
-22PD10,CHINNAHYATA POORVIKA,PoorvikaGowda,22PD10@psgtech.ac.in
-22PD11,DHARANI S,dharani2911,22PD11@psgtech.ac.in
-22PD12,DIRAVINA E I,Diravina_E_I,22PD12@psgtech.ac.in
-22PD13,GOWTHAM S,Gowtham_Senthilkumar,22PD13@psgtech.ac.in
-22PD14,HARSHAN M V,Harshan_M_V,22PD14@psgtech.ac.in
-22PD15,KAMALESH PANTRA,Kamaleshpantra,22PD15@psgtech.ac.in
-22PD16,KAVIYA N S,Kaviya_n_s ,22PD16@psgtech.ac.in
-22PD17 ,KURRA MOKSHITHA,Mokshitha_Reddy,22PD17@psgtech.ac.in
-22PD18,LALITH KISHORE S,lalith2708,22PD18@psgtech.ac.in
-22PD19,LAXMAN V,laxmanspidey,22PD19@psgtech.ac.in
-22PD20,LIVIN JOSEPH J,livinjoseph,22PD20@psgtech.ac.in
-22PD21,LUQMAAN K,Luqmaan_K,22PD21@psgtech.ac.in
-22PD22,MITHUNSENTHIL V,Mithun_Senthil,22PD22@psgtech.ac.in
-22PD23 ,MOHAMED AKLAMAASH M R,Aklamaash ,22PD23@psgtech.ac.in
-22PD24,NITHIN V,nithinvinukumar,22PD24@psgtech.ac.in
-22PD25,NIVITHASRI A,Nivithasri,22PD25@psgtech.ac.in
-22PD26,NOOR FATHIMA,noor_fathima,22PD26@psgtech.ac.in
-22PD27,PARAMAGURU H,_parama_guru_,22PD27@psgtech.ac.in
-22PD28,S ARUN PRAKASH,d_ghoul,22PD28@psgtech.ac.in
-22PD29,SAMRIDHAA R,samridhaa,22PD29@psgtech.ac.in
-22PD30,SARIPIRALLA DUSHYANTH REDDY,dushyanth_04,22PD30@psgtech.ac.in
-22PD31,SARNIKA SANJIV KUMAR,sarnikaa,22PD31@psgtech.ac.in
-22PD32,SHIVNARAN S,shivnarans,22PD32@psgtech.ac.in
-22PD33,SMRITHI L,smrithi_,22PD33@psgtech.ac.in
-22PD34,SOUNDARYALAKSHMI R,Soundarya_26,22PD34@psgtech.ac.in
-22PD35,SUJAN S,sujan_s13,22PD35@psgtech.ac.in
-22PD36,SUNIL J,Sunil_16,22PD36@psgtech.ac.in
-22PD37,TANAZ I,tanaziqubal,22PD37@psgtech.ac.in
-22PD38,V S RITANYA,Ritanya_1110,22PD38@psgtech.ac.in
-22PD39,VALINCIA JOHN,Valincia,22PD39@psgtech.ac.in
-22PD40,VARUN SITHAARTH K K,varun4socials,22PD40@psgtech.ac.in
+id,name,leetcode,email,classId
+22PD01,AARTHI N J,Aarthinagaraj,22PD01@psgtech.ac.in,22PD
+22PD02,AHALYANJUNA S,Ahalyanjuna_S,22PD02@psgtech.ac.in,22PD
+22PD03,AKASH KUMAR A,AKASH_KUMAR_A_0603,22PD03@psgtech.ac.in,22PD
+22PD04,AKILA R,Akila_08,22PD04@psgtech.ac.in,22PD
+22PD05,AKSHAYA S,Akshaya_005,22PD05@psgtech.ac.in,22PD
+22PD06,ANUVARSANA K,anuvarsana,22PD06@psgtech.ac.in,22PD
+22PD07,BHUVANESH D,bhuvaneshd32,22PD07@psgtech.ac.in,22PD
+22PD08,BRINDHA SARATHI M,Brindha_Sarathi_M,22PD08@psgtech.ac.in,22PD
+22PD09,CHAITHANYA N,ChaithanyaNandan,22PD09@psgtech.ac.in,22PD
+22PD10,CHINNAHYATA POORVIKA,PoorvikaGowda,22PD10@psgtech.ac.in,22PD
+22PD11,DHARANI S,dharani2911,22PD11@psgtech.ac.in,22PD
+22PD12,DIRAVINA E I,Diravina_E_I,22PD12@psgtech.ac.in,22PD
+22PD13,GOWTHAM S,Gowtham_Senthilkumar,22PD13@psgtech.ac.in,22PD
+22PD14,HARSHAN M V,Harshan_M_V,22PD14@psgtech.ac.in,22PD
+22PD15,KAMALESH PANTRA,Kamaleshpantra,22PD15@psgtech.ac.in,22PD
+22PD16,KAVIYA N S,Kaviya_n_s ,22PD16@psgtech.ac.in,22PD
+22PD17 ,KURRA MOKSHITHA,Mokshitha_Reddy,22PD17@psgtech.ac.in,22PD
+22PD18,LALITH KISHORE S,lalith2708,22PD18@psgtech.ac.in,22PD
+22PD19,LAXMAN V,laxmanspidey,22PD19@psgtech.ac.in,22PD
+22PD20,LIVIN JOSEPH J,livinjoseph,22PD20@psgtech.ac.in,22PD
+22PD21,LUQMAAN K,Luqmaan_K,22PD21@psgtech.ac.in,22PD
+22PD22,MITHUNSENTHIL V,Mithun_Senthil,22PD22@psgtech.ac.in,22PD
+22PD23 ,MOHAMED AKLAMAASH M R,Aklamaash ,22PD23@psgtech.ac.in,22PD
+22PD24,NITHIN V,nithinvinukumar,22PD24@psgtech.ac.in,22PD
+22PD25,NIVITHASRI A,Nivithasri,22PD25@psgtech.ac.in,22PD
+22PD26,NOOR FATHIMA,noor_fathima,22PD26@psgtech.ac.in,22PD
+22PD27,PARAMAGURU H,_parama_guru_,22PD27@psgtech.ac.in,22PD
+22PD28,S ARUN PRAKASH,d_ghoul,22PD28@psgtech.ac.in,22PD
+22PD29,SAMRIDHAA R,samridhaa,22PD29@psgtech.ac.in,22PD
+22PD30,SARIPIRALLA DUSHYANTH REDDY,dushyanth_04,22PD30@psgtech.ac.in,22PD
+22PD31,SARNIKA SANJIV KUMAR,sarnikaa,22PD31@psgtech.ac.in,22PD
+22PD32,SHIVNARAN S,shivnarans,22PD32@psgtech.ac.in,22PD
+22PD33,SMRITHI L,smrithi_,22PD33@psgtech.ac.in,22PD
+22PD34,SOUNDARYALAKSHMI R,Soundarya_26,22PD34@psgtech.ac.in,22PD
+22PD35,SUJAN S,sujan_s13,22PD35@psgtech.ac.in,22PD
+22PD36,SUNIL J,Sunil_16,22PD36@psgtech.ac.in,22PD
+22PD37,TANAZ I,tanaziqubal,22PD37@psgtech.ac.in,22PD
+22PD38,V S RITANYA,Ritanya_1110,22PD38@psgtech.ac.in,22PD
+22PD39,VALINCIA JOHN,Valincia,22PD39@psgtech.ac.in,22PD
+22PD40,VARUN SITHAARTH K K,varun4socials,22PD40@psgtech.ac.in,22PD

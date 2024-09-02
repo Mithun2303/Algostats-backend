@@ -45,7 +45,7 @@ export class ProblemService {
           },
         });
       } catch (error) {}
-    });
+    }); 
 
     const excludedProblem = data.filter(
       (element) => !problems.find((ele) => ele == element.titleSlug),
@@ -53,12 +53,16 @@ export class ProblemService {
     return excludedProblem;
   }
 
-  async getUserProblems(id: string): Promise<UserProblemResponseDto[]> {
+  async getUserProblems(id: string,limit:number): Promise<UserProblemResponseDto[]> {
     return (
       await this.databaseService.user_Problem.findMany({
+        take:limit,
         where: {
           userId: id,
         },
+        orderBy:[
+          {timestamp:'desc'}
+        ],
         select: {
           problem: {
             select: {

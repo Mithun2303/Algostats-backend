@@ -125,7 +125,6 @@ export class AuthController {
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file,
-    @LoggedInUser() userDet: UserResponseDto,
   ) {
     const path = 'server/uploads/86245cd016876fe468da0316fe8e8e87';
     let users = [];
@@ -136,7 +135,7 @@ export class AuthController {
         users.push(row);
       })
       .on('end', async () => {
-        this.authService.registerBulk(users, userDet);
+        this.authService.registerBulk(users);
         fs.unlinkSync(file.path); 
       });
   }
@@ -179,7 +178,7 @@ export class AuthController {
     }
   }
   @ApiOkResponse()
-  @Post('change-password')
+  @Post('resetPassword')
   @AllowAllRoles
   @UseGuards(AuthGaurd)
   @ApiBearerAuth()
