@@ -25,6 +25,7 @@ export class LeaderboardController {
 
   @Get('class/:id')
   async findClass(@Param('id') id: string) {
+    console.log("hello")
     return (await this.leaderboardService.findClassLeaderboard(id)).map(
       (elt) => new classLeaderboardResponseDto(elt),
     );

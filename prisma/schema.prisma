@@ -16,6 +16,7 @@ datasource db {
 
 model User {
   id             String   @id
+  name           String
   email          String   @unique
   password       String
   role           String   @default("STUDENT")
@@ -110,6 +111,7 @@ model Topic_Problem {
 view leaderboard {
   userId    String
   class     String
+  name      String
   stream    String
   batch     Int
   problemId String
@@ -142,5 +144,3 @@ enum Difficulty {
   HARD
   EXPERT
 }
-
-

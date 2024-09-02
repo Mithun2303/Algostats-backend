@@ -84,26 +84,27 @@ export class AuthController {
   @Post('/register')
   async register(
     @Body() body: UserRegisterSingleDto,
-    @LoggedInUser() user: UserResponseDto,
+    // @LoggedInUser() user: UserResponseDto,
   ) {
-    if (user.role == UserRole.COURSE_COORDINATOR) {
-      if (body.stream == user.stream) {
-        return new UserResponseDto(await this.authService.register(body));
-      } else {
-        throw new ForbiddenException(
-          'You are unauthorised to access other streams',
-        );
-      }
-    } else {
-      return new UserResponseDto(await this.authService.register(body));
-    }
+    // if (user.role == UserRole.COURSE_COORDINATOR) {
+    //   if (body.stream == user.stream) {
+    //     return new UserResponseDto(await this.authService.register(body));
+    //   } else {
+    //     throw new ForbiddenException(
+    //       'You are unauthorised to access other streams',
+    //     );
+    //   }
+    // } else {
+    //   return new UserResponseDto(await this.authService.register(body));
+    // }
+    return new UserResponseDto(await this.authService.register(body));
   }
 
   @Post('bulkregister')
   @UseInterceptors(FileInterceptor('file'))
   @ApiConsumes('multipart/form-data')
   @ApiBearerAuth()
-  @AllowedRoles([UserRole.TUTOR])
+  @AllowedRoles([UserRole.PLACEMENT_COORDINATOR])
   @UseGuards(AuthGaurd)
   @ApiBody({
     required: true,

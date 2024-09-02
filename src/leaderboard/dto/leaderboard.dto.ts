@@ -5,7 +5,9 @@ export class classLeaderboardResponseDto{
     @Expose()
     @IsNotEmpty()
     id:string
-
+    @Expose()
+    @IsNotEmpty()
+    name:string
     @Expose()
     @IsNotEmpty()
     score:number
@@ -27,6 +29,9 @@ export class streamLeaderboardResponseDto{
     @Expose()
     batch:number
 
+    @Expose()
+    name:string
+
     constructor(partial:Partial<streamLeaderboardResponseDto>|Partial<Event>){
         Object.assign(this,partial)
     }
@@ -43,6 +48,9 @@ export class batchLeaderboardResponseDto{
 
     @Expose()
     stream:string
+
+    @Expose()
+    name:string
     
     constructor(partial:Partial<batchLeaderboardResponseDto>|Partial<Event>){
         Object.assign(this,partial)
@@ -59,10 +67,16 @@ export class LeaderboardResponseDto{
     score:number
 
     @Expose()
+    name:string
+
+    @Expose()
     stream:string
     
     @Expose()
-    batch:number
+    batch:number 
+    
+    @Expose()
+    class:string
     
     constructor(partial:Partial<batchLeaderboardResponseDto>|Partial<Event>){
         Object.assign(this,partial)

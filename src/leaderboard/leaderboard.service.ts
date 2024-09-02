@@ -7,7 +7,7 @@ export class LeaderboardService {
   constructor(private readonly databaseService:DatabaseService){}
   async findClassLeaderboard(id: string): Promise<classLeaderboardResponseDto[]> {
     return (await this.databaseService.leaderboard.groupBy({
-      by: ['userId'],
+      by:['userId','name'],
       where: {
         AND: [
           { class: id },
@@ -26,13 +26,14 @@ export class LeaderboardService {
     })).map((elt) => {
       const id = elt.userId;
       const score = elt._sum.points
-      return {id,score}
+      const name = elt.name
+      return {id,score,name}
       })
   }
 
   async findStreamLeaderboard(id: string): Promise<streamLeaderboardResponseDto[]> {
     return ((await this.databaseService.leaderboard.groupBy({
-      by: ['userId','batch'], 
+      by: ['userId','batch','name'], 
         where: {
         AND: [
           { stream: id },
@@ -53,13 +54,14 @@ export class LeaderboardService {
       const id = elt.userId;
       const score = elt._sum.points
       const batch = elt.batch;
-      return {id,score,batch}
+      const name = elt.name;
+      return {id,score,batch,name}
       }))
   }
 
   async findBatchLeaderboard(id: number): Promise<batchLeaderboardResponseDto[]> {
     return ((await this.databaseService.leaderboard.groupBy({
-      by: ['userId','stream'], 
+      by: ['userId','stream','name'], 
         where: {
         AND: [
           { batch: id},
@@ -80,13 +82,14 @@ export class LeaderboardService {
       const id = elt.userId;
       const score = elt._sum.points
       const stream = elt.stream;
-      return {id,score,stream}
+      const name = elt.name;
+      return {id,score,stream,name}
       }))
   }
 
   async findLeaderboard(): Promise<LeaderboardResponseDto[]> {
     return ((await this.databaseService.leaderboard.groupBy({
-      by: ['userId','batch','stream'], 
+      by: ['userId','batch','stream','name','class'], 
         where: {
         AND: [
           // { timestamp: { gt: new Date() } },
@@ -107,7 +110,9 @@ export class LeaderboardService {
       const score = elt._sum.points
       const batch = elt.batch;
       const stream = elt.stream;
-      return {id,score,batch,stream}
+      const name = elt.name;
+      const idx = elt.class;
+      return {id,score,batch,stream,name,class:idx}
       }))
   }
 }

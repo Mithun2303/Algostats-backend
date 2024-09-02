@@ -52,6 +52,7 @@ export class AuthService {
     return await this.databaseService.user.create({
       data: {
         id: data.id,
+        name:data.name,
         email: data.email,
         role: data.role,
         stream: data.stream,
@@ -68,12 +69,13 @@ export class AuthService {
       const request = await data.map(async (elt) => {
         const id = elt.id;
         const email = elt.email;
+        const name = elt.name;
         const password = await bcrypt.hash(elt.id, 10);
         const leetcode = elt.leetcode;
         const classId = user.class;
         const stream = user.stream;
         const batch = user.batch;
-        return { id, email, password, leetcode, class: classId, stream, batch };
+        return { id, email, name,password, leetcode, class: classId, stream, batch };
       });
       const response = await Promise.all(request);
       console.log(response);

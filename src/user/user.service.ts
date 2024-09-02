@@ -77,7 +77,7 @@ export class UserService {
     console.log(id);
     
     //Update last backup time
-    // await this.updateBackupTime(id);
+    await this.updateBackupTime(id);
 
     // Service to find problems that is not in the db. Add user_problem relation if problem is in DB
     const excluded_problem = await this.problemService.findExcluded(

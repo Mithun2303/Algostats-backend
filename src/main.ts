@@ -14,7 +14,7 @@ async function bootstrap() {
   app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter));
 
   app.setGlobalPrefix('/api');
-
+  app.enableCors()
   app.useGlobalInterceptors(
     new ClassSerializerInterceptor(app.get(Reflector), {
       strategy: 'excludeAll',

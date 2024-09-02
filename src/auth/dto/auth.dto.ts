@@ -30,6 +30,10 @@ export class UserRegisterDto {
 
   @IsString()
   @IsNotEmpty()
+  name: string;
+
+  @IsString()
+  @IsNotEmpty()
   leetcode: string;
 }
 
@@ -42,6 +46,10 @@ export class UserRegisterSingleDto {
   @IsEmail()
   @IsNotEmpty()
   email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
   @IsString()
   @IsNotEmpty()
@@ -73,6 +81,10 @@ export class UserResponseDto {
   @Expose()
   @IsString()
   linkedIn: string;
+  
+  @Expose()
+  @IsString()
+  name: string;
 
   @Expose()
   @IsString()
