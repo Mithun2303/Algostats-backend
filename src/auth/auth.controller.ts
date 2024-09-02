@@ -177,6 +177,7 @@ export class AuthController {
       );
     }
   }
+
   @ApiOkResponse()
   @Post('change-password')
   @AllowAllRoles

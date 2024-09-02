@@ -8,6 +8,7 @@ import { UserResponseDto } from 'src/auth/dto/auth.dto';
 import { TopicService } from './topic.service';
 import { ProblemService } from './problem.service';
 import { Cron, CronExpression } from '@nestjs/schedule';
+import { timeStamp } from 'console';
 
 @Injectable()
 export class UserService {
@@ -91,4 +92,24 @@ export class UserService {
       user,
     );
   }
+
+  async getrecentlySolved(id:string ,limit:number){
+    return await this.databaseService.user_Problem.findMany({
+      where:{
+        AND: [
+          {userId : id},
+          {timestamp: { lt: new Date() }},
+        ]
+      },
+      take: limit,
+      orderBy:[
+        {timestamp:"desc"}
+      ],
+      select:{
+        problemId:true,
+      }
+      })
+      
+  }
+
 }

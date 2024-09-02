@@ -28,6 +28,7 @@ import { UserResponseDto } from 'src/auth/dto/auth.dto';
 @ApiTags('user')
 @Controller('user')
 export class UserController {
+  recentlySolvedService: any;
   constructor(
     private readonly userService: UserService,
     private readonly leetcodeService: LeetcodeService,
@@ -49,4 +50,14 @@ export class UserController {
   async getMe(@LoggedInUser()user : UserResponseDto){
     return new UserResponseDto(user)
   }
+
+  @ApiBearerAuth()
+  @AllowAllRoles
+  @UseGuards(AuthGaurd)
+  
+  @Get('/user/recentlySolved/:limit')
+  async getRecentlySolved( @LoggedInUser("id") userId: string, @Param('limit') limit:number){
+    return await this.userService.getrecentlySolved(userId,+limit)
+  }
+
 }
