@@ -56,6 +56,7 @@ export class AuthController {
 
   @Post('/login')
   async create(@Body() createAuthDto: UserLoginDto) {
+    console.log(createAuthDto)
     return new UserLoginResponseDto(
       await this.authService.login(createAuthDto),
     );
@@ -84,26 +85,27 @@ export class AuthController {
   @Post('/register')
   async register(
     @Body() body: UserRegisterSingleDto,
-    @LoggedInUser() user: UserResponseDto,
+    // @LoggedInUser() user: UserResponseDto,
   ) {
-    if (user.role == UserRole.COURSE_COORDINATOR) {
-      if (body.stream == user.stream) {
-        return new UserResponseDto(await this.authService.register(body));
-      } else {
-        throw new ForbiddenException(
-          'You are unauthorised to access other streams',
-        );
-      }
-    } else {
-      return new UserResponseDto(await this.authService.register(body));
-    }
+    // if (user.role == UserRole.COURSE_COORDINATOR) {
+    //   if (body.stream == user.stream) {
+    //     return new UserResponseDto(await this.authService.register(body));
+    //   } else {
+    //     throw new ForbiddenException(
+    //       'You are unauthorised to access other streams',
+    //     );
+    //   }
+    // } else {
+    //   return new UserResponseDto(await this.authService.register(body));
+    // }
+    return new UserResponseDto(await this.authService.register(body));
   }
 
   @Post('bulkregister')
   @UseInterceptors(FileInterceptor('file'))
   @ApiConsumes('multipart/form-data')
   @ApiBearerAuth()
-  @AllowedRoles([UserRole.TUTOR])
+  @AllowedRoles([UserRole.PLACEMENT_COORDINATOR])
   @UseGuards(AuthGaurd)
   @ApiBody({
     required: true,
@@ -124,7 +126,6 @@ export class AuthController {
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file,
-    @LoggedInUser() userDet: UserResponseDto,
   ) {
     const path = 'server/uploads/86245cd016876fe468da0316fe8e8e87';
     let users = [];
@@ -135,7 +136,7 @@ export class AuthController {
         users.push(row);
       })
       .on('end', async () => {
-        this.authService.registerBulk(users, userDet);
+        this.authService.registerBulk(users);
         fs.unlinkSync(file.path); 
       });
   }
@@ -178,7 +179,7 @@ export class AuthController {
     }
   }
   @ApiOkResponse()
-  @Post('change-password')
+  @Post('resetPassword')
   @AllowAllRoles
   @UseGuards(AuthGaurd)
   @ApiBearerAuth()

@@ -1,22 +1,33 @@
-id,email,leetcode
-22PC01,abhilashnxt@gmail.com,AbhilaSh3028
-22PC03,22pc03@psgtech.ac.in,abinayab_17																							
-22PC08,22pc08@psgtech.ac.in,Deepadharshan
-22PC04,rimurusama235@gmail.com,MikeyDono25
-22PC14,jhss12ahariharan@gmail.com,HariHolmes
-22PC15,22pc15@psgtech.ac.in,jaishree_k
-22PC16,22pc16@psgtech.ac.in,karthika_v
-22PC17,22pc17@psgtech.ac.in,L_Shambhavi
-22PC19,22pc19@psgtech.ac.in,mithunkarthick1610
-22PC20,22pc20@psgtech.ac.in,Muthu_meenakshi
-22PC21,shansitashri@gmail.com,shansita
-22PC23,22pc23@psgtech.ac.in,learner_always
-22PC24,nidharshana0402@gmail.com,nidharshana 
-22PC27,ravivarma1204@gmail.com,Ravivarma1204
-22PC28,22pc28@psgtech.ac.in,sai_venki
-22PC29,22pc29@psgtech.ac.in,samrithiv
-22PC30,22pc30@psgtech.ac.in,Sanj_24
-22PC33,shreenithimanivelan@gmail.com,Shreenithi_2003
-22PC35,varshni1802@gmail.com,SreeVarshni
-22PC37,22pc37@psgtech.ac.in,Vengateshwaran
-22PC38 ,22pc38@psgtech.ac.in,vishnu_priya_m
+id,email,leetcode,name,classId
+22PC01,22pc01@psgtech.ac.in,AbhilaSh3028,ABHILASH K,22PC
+22PC02,22pc02@psgtech.ac.in,abhi2636,ABHINIVESH G,22PC
+22PC03,22pc03@psgtech.ac.in,abinayab_17,ABINAYA B,22PC
+22PC04,22pc04@psgtech.ac.in,MikeyDono25,ADITYA HARIHARAN M,22PC
+22PC06,22pc06@psgtech.ac.in,aswath_,ASWATH A V,22PC
+22PC07,22pc07@psgtech.ac.in,marsh_bp,BHARATH PRANESH P K,22PC
+22PC08,22pc08@psgtech.ac.in,Deepadharshan,DEEPADHARSHAN S,22PC
+22PC09,22pc09@psgtech.ac.in,dharaneeshnatarajan2574,DHARANEESH N J,22PC
+22PC10,22pc10@psgtech.ac.in,DINESHPRASATH,DINESHPRASATH G A,22PC
+22PC11,22pc11@psgtech.ac.in,Durga_Nandhini26,DURGA NANDHINI S,22PC
+22PC13,22pc13@psgtech.ac.in,hamanth,HAMANTH M,22PC
+22PC14,22pc14@psgtech.ac.in,HariHolmes,HARI HARAN R,22PC
+22PC15,22pc15@psgtech.ac.in,jaishree_k,JAISHREE K,22PC
+22PC16,22pc16@psgtech.ac.in,karthika_v,KARTHIKA V,22PC
+22PC17,22pc17@psgtech.ac.in,L_Shambhavi,L SHAMBHAVI,22PC
+22PC18,22pc18@psgtech.ac.in,22pc18,MAHADEV MANOHAR,22PC
+22PC19,22pc19@psgtech.ac.in,mithunkarthick1610,MITHUN KARTHICK V,22PC
+22PC20,22pc20@psgtech.ac.in,Muthu_meenakshi,MUTHU MEENAKSHI N,22PC
+22PC21,22pc21@psgtech.ac.in,shansita,N B SHANSITA SHRI,22PC
+22PC22,22pc22@psgtech.ac.in,Gy5G5QqRup,NAVEEN R,22PC
+22PC23,22pc23@psgtech.ac.in,Learner_Always,NAVYA V T,22PC
+22PC24,22pc24@psgtech.ac.in,nidharshana,NIDHARSHANA S,22PC
+22PC27,22pc27@psgtech.ac.in,RAVIVARMA1204,RAVI VARMA V,22PC
+22PC28,22pc28@psgtech.ac.in,sai_venki,SAIVENKETRAJ K S,22PC
+22PC29,22pc29@psgtech.ac.in,samrithiv,SAMRITHI V,22PC
+22PC30,22pc30@psgtech.ac.in,Sanj_24,SANJAY S,22PC
+22PC32,22pc32@psgtech.ac.in,SARVAJR,SARAVANAN R,22PC
+22PC33,22pc33@psgtech.ac.in,shreenithi_2003,SHREENITHI A M,22PC
+22PC34,22pc34@psgtech.ac.in,Sornamalya_7,SORNAMALYA S,22PC
+22PC35,22pc35@psgtech.ac.in,SreeVarshni,SREE VARSHNI S,22PC
+22PC37,22pc37@psgtech.ac.in,Vengateshwaran,VENGATESHWARAN K,22PC
+22PC38,22pc38@psgtech.ac.in,vishnu_priya_m,VISHNU PRIYA M,22PC

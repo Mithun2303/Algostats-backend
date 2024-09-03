@@ -5,6 +5,7 @@ import { DatabaseModule } from './database/database.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
+import { LeaderboardModule } from './leaderboard/leaderboard.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TaskModule } from './task/task.module';
 
@@ -28,6 +29,7 @@ import { TaskModule } from './task/task.module';
         },
       }),
     }),
+    LeaderboardModule,
     TaskModule,
   ],
   controllers: [AppController],

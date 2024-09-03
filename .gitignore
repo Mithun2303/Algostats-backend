@@ -3,6 +3,7 @@
 /node_modules
 /build
 
+./backup.csv
 # Logs
 logs
 *.log

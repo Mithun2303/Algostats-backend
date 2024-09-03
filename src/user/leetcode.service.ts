@@ -46,11 +46,11 @@ export class LeetcodeService {
       ).data.data.recentAcSubmissionList;
 
       return result.filter(
-        (element) => new Date(element.timestamp * 1000) >= user.lastBackupTime,
+        (element) => new Date(element.timestamp * 1000) < user.lastBackupTime,
       );
     } catch (error) {
       throw new HttpException(
-        'Error fetching data from third party GraphQL API',
+        'Error fetching data from third party GraphQL API'+error,
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
