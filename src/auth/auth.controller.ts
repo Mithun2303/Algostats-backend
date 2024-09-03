@@ -56,6 +56,7 @@ export class AuthController {
 
   @Post('/login')
   async create(@Body() createAuthDto: UserLoginDto) {
+    console.log(createAuthDto)
     return new UserLoginResponseDto(
       await this.authService.login(createAuthDto),
     );

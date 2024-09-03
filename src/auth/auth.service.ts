@@ -32,7 +32,7 @@ export class AuthService {
   async login(data: UserLoginDto) {
     const user = await this.databaseService.user.findUnique({
       where: {
-        email: data.email,
+        email: data.email, 
       },
     });
     if (!user)
