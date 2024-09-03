@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { UserResponseDto } from 'src/auth/dto/auth.dto';
 import { DatabaseService } from 'src/database/database.service';
-import { TaskCreateDto } from './dto/task.dto';
+import { TaskCreateDto, TaskCreateResponseDto } from './dto/task.dto';
 import { UserRole } from 'src/user/dto/user.dto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class TaskService {
   constructor(private readonly databaseService: DatabaseService) {}
 
-  async createClassTask(userDet: UserResponseDto, body: TaskCreateDto) {
+  async createTask(userDet: UserResponseDto, body: TaskCreateDto):Promise<TaskCreateResponseDto>{
     const task = await this.databaseService.task.create({
       data: {
         assignedById: userDet.id,
@@ -16,14 +17,15 @@ export class TaskService {
         deadline: body.deadline,
       },
     });
+    console.log(task);
     const users = (
       await this.databaseService.user.findMany({
         where: {
-          class:{
-            not:null,
-            equals:body.class
+          class: {
+            not: null,
+            equals: body.class,
           },
-          role:UserRole.STUDENT
+          role: UserRole.STUDENT,
         },
         select: {
           id: true,
@@ -32,12 +34,14 @@ export class TaskService {
     ).map((elt) => {
       const userId = elt.id;
       const taskId = task.id;
-      return {userId,taskId}
+      return { userId, taskId };
     });
- console.log(users);
+    console.log(users);
     const userTask = await this.databaseService.user_Task.createMany({
       data: users,
     });
-    return userTask
+    return new TaskCreateResponseDto(task);
   }
+
+
 }
