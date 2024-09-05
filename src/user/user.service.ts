@@ -26,8 +26,8 @@ export class UserService {
   }
 
   async getOneById(id: string): Promise<UserResponseDto> {
-    return await this.databaseService.user.findUnique({
-      where: {
+    return await this.databaseService.user.findFirst({
+      where: {      
         id,
       },
     });

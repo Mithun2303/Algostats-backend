@@ -43,11 +43,11 @@ export class UserController {
       (elt) => new UserProblemResponseDto(elt),
     );
   }
-  @ApiBearerAuth()
+  // @ApiBearerAuth()
   @AllowAllRoles
-  @UseGuards(AuthGaurd)
-  @Get('me')
-  async getMe(@LoggedInUser()user : UserResponseDto){
-    return new UserResponseDto(user)
+  // @UseGuards(AuthGaurd)
+  @Get(':userId')
+  async getMe(@Param("userId") userId : string){
+    return new UserResponseDto(await this.userService.getOneById(userId.toUpperCase()))
   }
 }

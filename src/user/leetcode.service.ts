@@ -81,7 +81,7 @@ export class LeetcodeService {
             timeStamp:element.timeStamp
           },user)
         } catch (error) {
-          console.log(error,data[idx]);
+          console.log(data[idx]);
         }
       });
     } catch (e) {
@@ -120,7 +120,7 @@ export class LeetcodeService {
         try {
           await this.topicService.create({ id: element.slug });
         } catch (error) {
-          console.error(error)
+          console.error(element)
         }
       });
       return topics;

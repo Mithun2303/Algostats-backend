@@ -1,27 +1,38 @@
-id,email,leetcode,name,classId
-22PT04,22PT05@psgtech.ac.in,ArshadJohan,Arshad Johan P,22PT
-22PT05,22PT06@psgtech.ac.in,aswajith707,Aswajith S,22PT
-22PT06,22PT07@psgtech.ac.in,menonaswathy6874,Aswathy Menon,22PT
-22PT07,22PT08@psgtech.ac.in,BharathiSathyan,BHARATHI S,22PT
-22PT07 ,22PT08@psgtech.ac.in,BharathiSathyan,Bharathi S,22PT
-22PT08,22PT09@psgtech.ac.in,lakshman66_,Lakshman C,22PT
-22PT09,22PT10@psgtech.ac.in,thatcatfromspace,Dinesh T V,22PT
-22PT10,22PT11@psgtech.ac.in,Duvarakesh,Duvarakesh S S,22PT
-22PT12,22PT13@psgtech.ac.in,haradh1718,HARSHITHA V,22PT
-22PT13,22PT14@psgtech.ac.in,jeevavilasini2003,Jeevavilasini R,22PT
-22PT14,22PT15@psgtech.ac.in,K_A_THANEESHA,K A Thaneesha,22PT
-22PT15,22PT16@psgtech.ac.in,Kaaviya_S_S,Kaaviya S S,22PT
-22PT16,22PT17@psgtech.ac.in,22pt16,MIRUDHULABASHINI N,22PT
-22PT17,22PT18@psgtech.ac.in,mdaashir,MOHAMED AASHIR S,22PT
-22PT20,22PT21@psgtech.ac.in,nandini_137,Nandini B,22PT
-22PT23,22PT24@psgtech.ac.in,Pavanraj916,Pavanraj,22PT
-22PT24,22PT25@psgtech.ac.in,pravalikavalluri994,Pravalika Valluri,22PT
-22PT25,22PT26@psgtech.ac.in,ranjana02g,Ranjana,22PT
-22PT26,22PT27@psgtech.ac.in,Roobika_T,Roobika T,22PT
-22PT27,22PT28@psgtech.ac.in,S_HEMA_MEENA,S.Hema Meena,22PT
-22PT33,22PT34@psgtech.ac.in,dharsan181204,SRIDHARSAN,22PT
-22PT36,22PT37@psgtech.ac.in,sreenivijay200,V Sreenivasan,22PT
-22PT37,22PT38@psgtech.ac.in,Vaishnavi_Vijay,Vaishnavi V,22PT
-22PT38,22PT39@psgtech.ac.in,vig_nxsh,Vignesh S,22PT
-22PT39,22PT40@psgtech.ac.in,vismayavinodk,Vismaya k,22PT
-22PT40,22PT41@psgtech.ac.in,Yuvaneshwarran-R,Yuvaneshwarran R,22PT
+id ,name ,email ,classId ,github  ,linkedIn ,leetcode
+22PT01 ,A SREE RAM  ,22pt01@psgtech.ac.in ,22PT ,Sreeram0804 ,https://www.linkedin.com/in/a-sreeram/ ,sreeram0804
+22PT02 ,ANIRUDHAN R ,22pt02@psgtech.ac.in ,22PT ,anirudhan-here ,https://www.linkedin.com/in/anirudhan-r-55792a283/ ,anirudhan2003123
+22PT03 ,ANIRUDHAN S ,22pt03@psgtech.ac.in ,22PT ,Ani905 ,www.linkedin.com/in/anirudhan-s-811761283 ,anirudhan905
+22PT04 ,ARSHAD JOHAN P ,22pt04@psgtech.ac.in ,22PT ,Arshad-Johan ,https://in.linkedin.com/in/arshad-johan-p-21a616248 ,ArshadJohan
+22PT05 ,ASWAJITH S ,22pt05@psgtech.ac.in ,22PT ,Aswajith7077 ,linkedin.com/in/aswajith-s-43a326283 ,aswajith707
+22PT06 ,ASWATHY MENON  ,22pt06@psgtech.ac.in ,22PT ,aswathy924 ,https://www.linkedin.com/in/aswathy-menon-62437a282/ ,menonaswathy6874
+22PT07 ,BHARATHI S ,22pt07@psgtech.ac.in ,22PT ,BharathiSathyan ,https://www.linkedin.com/in/bharathi-sathyan-858a00282/ ,BharathiSathyan
+22PT08 ,CHEDDE LAKSHMAN ,22pt08@psgtech.ac.in ,22PT ,lakshmanpanda ,https://www.linkedin.com/in/lakslakshman-c-020a06254 ,lakshman66_
+22PT09 ,DINESH T V ,22pt09@psgtech.ac.in ,22PT ,thatcatfromspace ,https://www.linkedin.com/in/dineshveluswamy/ ,thatcatfromspace
+22PT10 ,DUVARAKESH S S ,22pt10@psgtech.ac.in ,22PT ,duvarakeshss ,https://www.linkedin.com/in/duvarakesh-s-s-5b64bb24a ,Duvarakesh
+22PT11 ,GOKUL ABINASH J C ,22pt11@psgtech.ac.in ,22PT ,Gokul-Abinash ,https://www.linkedin.com/in/gokul-abinash-j-c-09308a24a/ ,Gokul_Abinash_J_C
+22PT12 ,HARSHITHA V ,22pt12@psgtech.ac.in ,22PT ,Harshithaviswanathan ,https://www.linkedin.com/in/harshitha-v-9220a624a ,haradh1718
+22PT13 ,JEEVAVILASINI R ,22pt13@psgtech.ac.in ,22PT ,,https://www.linkedin.com/in/jeeva-vilasini-a04b04251/ ,jeevavilasini2003
+22PT14 ,K A THANEESHA  ,22pt14@psgtech.ac.in ,22PT ,codzzninja ,https://www.linkedin.com/in/k-a-thaneesha-29b28724b ,K_A_THANEESHA
+22PT15 ,KAAVIYA S S ,22pt15@psgtech.ac.in ,22PT ,Kaaviya-S-S ,https://www.linkedin.com/in/kaaviya-s-s-548315282/ ,Kaaviya_S_S
+22PT16 ,MIRUDHULABASHINI N ,22pt16@psgtech.ac.in ,22PT ,22PT16 ,https://www.linkedin.com/in/mirudhula-bashini-3b3234282 ,22pt16
+22PT17 ,MOHAMED AASHIR S ,22pt17@psgtech.ac.in ,22PT ,mdaashir ,https://www.linkedin.com/in/mdaashir ,mdaashir
+22PT18 ,NANDANA T ,22pt18@psgtech.ac.in ,22PT ,Nandana-T ,https://www.linkedin.com/in/nandana-t-2b38b124b/ ,Nandana_T
+22PT19 ,NANDHITHA S ,22pt19@psgtech.ac.in ,22PT ,nandhitha-s ,https://www.linkedin.com/in/nandhitha-sakthivel-3026bb282/ ,nandhithas_sakthivel
+22PT20 ,NANDINI B ,22pt20@psgtech.ac.in ,22PT ,Nandini01042004 ,https://www.linkedin.com/in/nandini-b-39900025b/ ,nandini_137
+22PT21 ,P DHIWAKARAN  ,22pt21@psgtech.ac.in ,22PT ,githubdhiwa ,https://www.linkedin.com/in/dhiwakaran-p-546a51283/ ,Karan_2010
+22PT22 ,PAVAN KUMAR S G ,22pt22@psgtech.ac.in ,22PT ,pavankumar2004 ,https://www.linkedin.com/in/pavan-kumar-s-g/ ,pavankumarsoundiraraj06
+22PT23 ,PAVANRAJ ,22pt23@psgtech.ac.in ,22PT ,Pavanraj-9 ,https://www.linkedin.com/in/pavan-raj-a86ba6253 ,Pavanraj916
+22PT24 ,PRAVALIKA VALLURI  ,22pt24@psgtech.ac.in ,22PT ,pvalluri09 ,https://www.linkedin.com/in/pravalika-valluri-91b51b255 ,pravalikavalluri994
+22PT25 ,RANJANA GOMATHIPRIYA ,22pt25@psgtech.ac.in ,22PT ,Ranjj02 ,https://www.linkedin.com/in/ranjana-gomathipriya-06716b22a/ ,ranjana02g
+22PT26 ,ROOBIKA T ,22pt26@psgtech.ac.in ,22PT ,Roobika-T ,https://www.linkedin.com/in/roobika-tura-98aab3260?trk=contact-info ,Roobika_T
+22PT27 ,S HEMA MEENA  ,22pt27@psgtech.ac.in ,22PT ,S-HEMA-MEENA ,https://www.linkedin.com/in/s-hema-meena-601976267 ,S_HEMA_MEENA
+22PT30 ,SHREYA SHRI D ,22pt30@psgtech.ac.in ,22PT ,Shreya-Shri-D ,http://www.linkedin.com/in/shreya-shri-d-92a360282 ,shreya_dev
+22PT31 ,SHRI SHAKTHIVEL M ,22pt31@psgtech.ac.in ,22PT ,shrishakthivelm ,https://www.linkedin.com/in/shri-shakthivel-muruganandam-3ba329255/ ,
+22PT32 ,SIVASANJEEV  S ,22pt32@psgtech.ac.in ,22PT ,sivasanjeevs ,http://www.linkedin.com/in/sivasanjeev-s-02931b282 ,sivasanjeev__s
+22PT33 ,SRIDHARSAN V ,22pt33@psgtech.ac.in ,22PT ,dharsanSri ,https://www.linkedin.com/in/sridharsan-v-68933a283/ ,dharsan181204
+22PT34 ,SRISHARAN V S ,22pt34@psgtech.ac.in ,22PT ,SrisharanVS ,https://www.linkedin.com/in/srisharan-v-s-74243624b ,Srisharan_V_S
+22PT36 ,SREENIVASAN V ,22pt36@psgtech.ac.in ,22PT ,sreenivasan18 ,https://www.linkedin.com/in/v-sreenivasan-187933282/ ,sreeni_0718
+22PT37 ,VAISHNAVI V ,22pt37@psgtech.ac.in ,22PT ,vaishnaviv19 ,https://www.linkedin.com/in/vaishnavi-vijayakumar-91778724a ,Vaishnavi_Vijay
+22PT38 ,VIGNESH S ,22pt38@psgtech.ac.in ,22PT ,vign-xsh ,https://www.linkedin.com/in/vignesh1508 ,vig_nxsh
+22PT39 ,VISMAYA K ,22pt39@psgtech.ac.in ,22PT ,Vismayavinodk ,https://www.linkedin.com/in/vismaya-k-163380282 ,vismayavinodk
+22PT40 ,YUVANESHWARRAN R ,22pt40@psgtech.ac.in ,22PT ,Yuvaneshwarran ,https://www.linkedin.com/in/yuvaneshwarran-r-441898283/ ,Yuvaneshwarran-R

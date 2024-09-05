@@ -105,7 +105,7 @@ export class AuthService {
         };
       });
       const response = await Promise.all(request);
-      console.log(response);
+      console.log(response.map(elt=>elt.id));
       await this.databaseService.user.createMany({
         data: response,
         skipDuplicates: true,
