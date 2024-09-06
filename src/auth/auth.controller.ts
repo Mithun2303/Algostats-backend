@@ -79,9 +79,9 @@ export class AuthController {
       $ref: getSchemaPath(UserRegisterSingleDto),
     },
   })
-  @AllowedRoles([UserRole.PLACEMENT_COORDINATOR, UserRole.COURSE_COORDINATOR])
-  @UseGuards(AuthGaurd)
-  @ApiBearerAuth()
+  //@AllowedRoles([UserRole.PLACEMENT_COORDINATOR, UserRole.COURSE_COORDINATOR])
+  //@UseGuards(AuthGaurd)
+  //@ApiBearerAuth()
   @Post('/register')
   async register(
     @Body() body: UserRegisterSingleDto,

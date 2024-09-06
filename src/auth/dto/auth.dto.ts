@@ -151,6 +151,9 @@ export class UserLoginResponseDto {
   @IsString()
   batch: string;
 
+  @Expose()
+  @IsString()
+  role : string;
   constructor(partial: Partial<UserLoginResponseDto> | Partial<Event>) {
     Object.assign(this, partial);
   }

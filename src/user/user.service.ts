@@ -44,7 +44,7 @@ export class UserService {
     });
   }
 
-  // @Cron(CronExpression.EVERY_10_SECONDS)
+  //@Cron(CronExpression.EVERY_10_SECONDS)
   async runRoutine() {
     const users = (
       await this.databaseService.user.findMany({
@@ -74,7 +74,7 @@ export class UserService {
 
     //API request to find recent problems
     const problem_list = await this.leetcodeService.listRecentProblem(user);
-    console.log(id);
+    console.log(problem_list);
     
     //Update last backup time
     await this.updateBackupTime(id);

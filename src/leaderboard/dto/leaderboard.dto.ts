@@ -82,3 +82,16 @@ export class LeaderboardResponseDto{
         Object.assign(this,partial)
     }
 }
+
+export class LBparamResponseDto{
+
+    @Expose()
+    from: Date
+
+    @Expose()
+    to : Date
+    
+    constructor(partial:Partial<batchLeaderboardResponseDto>|Partial<Event>){
+        Object.assign(this,partial)
+    }
+}

@@ -22,5 +22,5 @@ export class RecentAcSubmissionList{
     
     @IsString()
     @IsNotEmpty()
-    timeStamp:string
+    timestamp:string
 }
