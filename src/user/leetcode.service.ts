@@ -46,7 +46,7 @@ export class LeetcodeService {
       ).data.data.recentAcSubmissionList;
 
       return result.filter(
-        (element) => new Date(element.timestamp * 1000) < user.lastBackupTime,
+        (element) => new Date(element.timestamp * 1000) >= user.lastBackupTime,
       );
     } catch (error) {
       throw new HttpException(
@@ -78,7 +78,7 @@ export class LeetcodeService {
             id:problem.id,
             title:problem.name,
             titleSlug:problem.id,
-            timeStamp:element.timeStamp
+            timestamp:element.timestamp
           },user)
         } catch (error) {
           console.log(error,data[idx]);

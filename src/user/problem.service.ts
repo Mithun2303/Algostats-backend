@@ -39,7 +39,7 @@ export class ProblemService {
       try {
         await this.databaseService.user_Problem.create({
           data: {
-            timestamp: element.timeStamp,
+            timestamp: new Date(+element.timestamp * 1000),
             userId: user.id,
             problemId: element.titleSlug,
           },
@@ -79,7 +79,7 @@ export class ProblemService {
     console.log(
       await this.databaseService.user_Problem.create({
         data: {
-          timestamp: element.timeStamp,
+          timestamp: new Date(+element.timestamp * 1000),
           problemId: element.titleSlug,
           userId: user.id,
         },
