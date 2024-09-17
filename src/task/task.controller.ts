@@ -18,6 +18,7 @@ import { UserRole } from 'src/user/dto/user.dto';
 import { LoggedInUser } from 'src/user/decorator/loggedIn.decorator';
 import { UserResponseDto } from 'src/auth/dto/auth.dto';
 import { TaskCreateDto, TaskCreateResponseDto } from './dto/task.dto';
+import { get } from 'http';
 
 @ApiTags('task')
 @Controller('task')
@@ -31,6 +32,7 @@ export class TaskController {
     UserRole.PLACEMENT_COORDINATOR,
     UserRole.COURSE_COORDINATOR,
   ])
+
   @Post()
   async createTask(
     @LoggedInUser() userDet: UserResponseDto,
@@ -51,8 +53,11 @@ export class TaskController {
     }
     return this.taskService.createTask(userDet, body);
   }
-
   //PC,CC to stream
 
   //PC to batch
+  @Get('/generateReport/:id')
+  async generateReport(@Param('id') id:string){
+    return this.taskService.generateReport(id);
+  }
 }
