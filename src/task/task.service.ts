@@ -92,8 +92,8 @@ export class TaskService {
   }
 
   async formatReport(id,count,assignedById,deadline,created,classid ,name){
-    const namelist = name.map( name => `| ${name.padEnd(25)} |`).join('\n');
-    console.log (` 
+    const namelist = name.map( name => `| ${name.padEnd(25)} |`);
+    return(` 
 # ${id}
 Assigned by: ${assignedById}
 Assigned to: ${classid}
