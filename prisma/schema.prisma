@@ -30,9 +30,31 @@ model User {
   created_at     DateTime @default(now())
   updated_at     DateTime @updatedAt
 
-  solves    User_Problem[]
-  User_Task User_Task[]
-  Task      Task[]
+  solves          User_Problem[]
+  User_Task       User_Task[]
+  Task            Task[]
+  Placement_Class Placement_Class[]
+  Attendance      Attendance[]
+}
+
+model Attendance {
+  classId String
+  userId  String
+  present Boolean
+  class   Placement_Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+  user    User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([classId, userId])
+}
+
+model Placement_Class {
+  id          String       @id
+  classId     String
+  date        DateTime
+  description String?
+  created_by  String
+  user        User         @relation(fields: [created_by], references: [id], onDelete: Cascade)
+  Attendance  Attendance[]
 }
 
 model Problem {
@@ -73,13 +95,13 @@ model User_Task {
   task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@id([taskId, userId,timestamp])
+  @@id([taskId, userId, timestamp])
 }
 
 model Task {
   id           String      @id @default(uuid())
   count        Int
-  assignedById String?     
+  assignedById String?
   assignedBy   User?       @relation(fields: [assignedById], references: [id], onDelete: Cascade)
   deadline     DateTime    @default(now())
   created_at   DateTime    @default(now())

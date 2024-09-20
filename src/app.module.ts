@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { LeaderboardModule } from './leaderboard/leaderboard.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TaskModule } from './task/task.module';
+import { AttendanceModule } from './attendance/attendance.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { TaskModule } from './task/task.module';
     }),
     LeaderboardModule,
     TaskModule,
+    AttendanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

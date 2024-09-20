@@ -30,6 +30,7 @@ async function bootstrap() {
     .addTag('user', 'User Managemenst Routes')
     .addTag('task', 'Task Management Routes')
     .addTag("leaderboard", "Leaderboard Management Routes")
+    .addTag("attendance", "Attendance Management Routes")
     .addTag('default')
     .addTag('public', 'Public Routes')
     .addBearerAuth()
