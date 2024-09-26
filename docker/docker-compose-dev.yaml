@@ -1,16 +1,26 @@
 services:
+  api:
+    image: mrrhuezzler/darpanet:dev-latest
+    restart: always
+    build:
+      context: ../
+      dockerfile: Dockerfile-dev
+    env_file:
+      - "../.env.dev-prod"
+    ports:
+      - "9198:9198"
+
   pg:
     image: postgres:16.3-alpine
     restart: always
     env_file:
-      - "../.env"
+      - "../.env.dev-prod"
     volumes:
       - ./data/pg:/var/lib/postgresql/data
     ports:
-      - 5432:5433
+      - "9199:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 1s
       timeout: 5s
       retries: 10
-  

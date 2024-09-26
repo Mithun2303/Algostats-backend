@@ -1,0 +1,25 @@
+services:
+  api:
+    image: ghcr.io/csa-tech-team/darpanet:prod
+    restart: always
+    env_file:
+      - '../stack.env'
+    ports:
+      - '9198:9198'
+
+  pg:
+    image: postgres:16.3-alpine
+    restart: always
+    env_file:
+      - '../stack.env'
+    volumes:
+      - data-pg:/var/lib/postgresql/data
+    ports:
+      - '9199:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready']
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+  'data-pg':
