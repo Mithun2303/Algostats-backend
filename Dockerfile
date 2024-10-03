@@ -4,9 +4,8 @@ WORKDIR /usr/src/app
 
 COPY package.json .
 
-COPY yarn.lock .
 
-RUN yarn install --only=Production
+RUN npm install --only=Production
 
 COPY . .
 
@@ -24,7 +23,7 @@ WORKDIR /usr/src/app
 ENV NODE_ENV production
 
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
-COPY --chown=node:node --from=build /usr/src/app/.env .env
+# COPY --chown=node:node --from=build /usr/src/app/.env .env
 COPY --chown=node:node --from=build /usr/src/app/package.json .
 COPY --chown=node:node --from=build /usr/src/app/prisma ./prisma
 COPY --chown=node:node --from=build /usr/src/app/node_modules/.prisma/client  ./node_modules/.prisma/client

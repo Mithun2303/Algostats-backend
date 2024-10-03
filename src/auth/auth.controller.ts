@@ -153,30 +153,28 @@ export class AuthController {
     @LoggedInUser() userDet: UserResponseDto,
     @Body() body: UpdatePrDto,
   ) {
-    if (userDet.role == UserRole.TUTOR) {
-      return this.authService.updatePr({
-        prs: body.id,
-        class: userDet.class,
-        batch: userDet.batch,
-        stream: userDet.stream,
-      });
-    } else if (userDet.role == UserRole.COURSE_COORDINATOR) {
-      return this.authService.updatePr({
-        prs: body.id,
-        class: body.class,
-        batch: body.batch,
-        stream: userDet.stream,
-      });
-    } else {
-      console.log(
-        await this.authService.updatePr({
+    // if (userDet.role == UserRole.TUTOR) {
+    //   return this.authService.updatePr({
+    //     prs: body.id,
+    //     class: userDet.class,
+    //     batch: userDet.batch,
+    //     stream: userDet.stream,
+    //   });
+    // } else if (userDet.role == UserRole.COURSE_COORDINATOR) {
+    //   return this.authService.updatePr({
+    //     prs: body.id,
+    //     class: body.class,
+    //     batch: body.batch,
+    //     stream: userDet.stream,
+    //   });
+    // } else {
+        return this.authService.updatePr({
           prs: body.id,
           class: body.class,
           batch: body.batch,
           stream: body.stream,
-        }),
-      );
-    }
+        });
+    // }
   }
   @ApiOkResponse()
   @Post('resetPassword')

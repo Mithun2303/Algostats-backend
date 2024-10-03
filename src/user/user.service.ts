@@ -44,7 +44,7 @@ export class UserService {
     });
   }
 
-  //@Cron(CronExpression.EVERY_10_SECONDS)
+  // @Cron(CronExpression.EVERY_10_SECONDS)
   async runRoutine() {
     const users = (
       await this.databaseService.user.findMany({
